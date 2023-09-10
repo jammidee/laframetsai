@@ -1,0 +1,112 @@
+Create By: Joel M. Damaso
+Date: 08/21/2023
+Assisted By: ChatGPT 3.5
+
+La Kubo ts
+La - lalula
+kubo - frame
+ts - typescript support
+
+Creation:
+1. npm init -y
+2. npm install express typescript @types/express
+3. Create tsconfig.json
+
+{
+  "compilerOptions": {
+    "target": "ES2020",
+    "module": "CommonJS",
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "strict": true,
+    "esModuleInterop": true
+  }
+}
+
+4. Create a folder src
+5. Create a file app.ts inside src
+
+import express from 'express';
+
+const app = express();
+
+app.get('/', (req, res) => {
+  res.send('Hello, Express with TypeScript!');
+});
+
+app.listen(3000, () => {
+  console.log('Server is running on port 3000');
+});
+
+6. inside package.json add inside scripts:
+
+  "scripts": {
+    "build": "tsc",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+
+7. npm run build
+8. node dist/app.js
+
+9. Install TypeScript Globally:
+  npm install -g typescript
+  
+10. Inside the app root folder run tsc --watch
+
+11. Install fs-extra:
+  npm install fs-extra --save-dev
+12. Create a File: build.js
+
+  -------------------------
+	const { exec } = require('child_process');
+	const fs = require('fs-extra');
+	const path = require('path');
+
+	const sourceDir = 'src/views';  // Source directory
+	const outputDir = 'dist/views'; // Output directory
+
+	// Function to copy files
+	const copyFiles = async () => {
+		try {
+			await fs.ensureDir(outputDir); // Create the output directory if it doesn't exist
+			await fs.copy(sourceDir, outputDir);
+			console.log('Assets copied successfully.');
+		} catch (error) {
+			console.error('Error copying assets:', error);
+		}
+	};
+
+	// Compile TypeScript files using tsc
+	exec('tsc', (error, stdout, stderr) => {
+		if (error) {
+			console.error('Error during TypeScript compilation:', error);
+			return;
+		}
+		console.log('TypeScript compilation completed.');
+
+		// Run the copyFiles function after TypeScript compilation
+		copyFiles();
+	});
+  -------------------------
+
+
+13. node build.js
+14. node dist/app.js
+
+
+LIBRARIES
+
+PUG 09/10/2023
+npm install express pug @types/express --save
+
+
+
+GIT - G1thUUb@!!M3
+---
+
+git init            # Initialize a Git repository
+git add .            # Add all files in your project to the staging area
+git commit -m "Initial commit"  # Commit your changes
+git branch -M main  # Rename the default branch to 'main'
+git remote add origin https://github.com/yourusername/your-repo-name.git  # Replace with your GitHub repository URL
+git push -u origin main  # Push your code to GitHub

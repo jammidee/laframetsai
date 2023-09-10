@@ -1,0 +1,16 @@
+============================================================================
+Lalulla Framework
+============================================================================
+Copyright (C) Lalulla OPC , Inc - All Rights Reserved
+Unauthorized copying of this file, via any medium is strictly prohibited
+Proprietary and confidential. This file is part of CloudGate Framework.
+Written by Joel M. Damaso <jammidee@gmail.com>, September 12, 2017
+============================================================================
+ 
+Software Architect: 		Jammi Dee
+Framework Design: 			Jammi Dee
+Developed / Programmed by : Joel Margate Damaso aka Jammi Dee
+Tested / QA by:				Jammi Dee
+
+09/10/2023  - Lalulla framework adjustments
+            - 
