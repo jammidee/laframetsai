@@ -10,5 +10,6 @@ Framework Design: 			Jammi Dee
 Developed / Programmed by : Joel Margate Damaso aka Jammi Dee
 Tested / QA by:				Jammi Dee
 
+09/11/2023  - added sequelize, added dotenv
 09/10/2023  - Lalulla framework adjustments
             - 

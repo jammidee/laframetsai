@@ -1,5 +1,17 @@
+
+
+
 import express from 'express';
 import path from 'path';
+
+// Setup the environment variables - JMD 09/11/2023
+import * as dotenv from 'dotenv';
+dotenv.config();
+
+//==================
+// Global Variables
+//==================
+const globalPort = process.env.PORT || 3000;
 
 const app = express();
 
@@ -25,6 +37,6 @@ app.get('/', (req, res) => {
 	res.send('Hello, Express with TypeScript!');
 });
 
-app.listen(3000, () => {
+app.listen(globalPort, () => {
 	console.log('Server is running on port 3000');
 });
