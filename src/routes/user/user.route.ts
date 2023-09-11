@@ -1,13 +1,13 @@
 /**
- * Copyright (C) 2012-2017 Cloud Gate, Inc. All rights reserved.
- * Copyright (c) 2017 - Joel M. Damaso - mailto:jammi_dee@yahoo.com Manila/Philippines
- * This file is part of CloudGate System.
+ * Copyright (C) 2023 Lalulla, Inc. All rights reserved.
+ * Copyright (c) 2023 - Joel M. Damaso - mailto:jammi_dee@yahoo.com Manila/Philippines
+ * This file is part of Lalulla System.
  * 
- * CloudGate Framework is distributed under the terms of the GNU General Public License 
+ * LaKuboTs Framework is distributed under the terms of the GNU General Public License 
  * as published by the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  * 
- * CloudGate System is distributed in the hope that it will be useful, but WITHOUT ANY
+ * LaKuboTs System is distributed in the hope that it will be useful, but WITHOUT ANY
  * WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A 
  * PARTICULAR PURPOSE.  See the GNU General Public License for more details.
  * 
@@ -16,7 +16,7 @@
  * 
  * Framework Designed by: Jammi Dee (jammi_dee@yahoo.com)
  *
- * File Create Date: 05/22/2018
+ * File Create Date: 09/11/2023
  * Created by: Jammi Dee
  * Modified by: Jammi Dee
  *
