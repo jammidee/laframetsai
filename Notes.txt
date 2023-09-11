@@ -106,7 +106,7 @@ npm install winston-daily-rotate-file --save
 **Testing 09/12/2023
 npm install mocha chai ts-node @types/mocha @types/chai --save-dev
 npm install nyc --save-dev
-
+npm install chai chai-http --save
 
 
 GIT - G1thUUb@!!M3
