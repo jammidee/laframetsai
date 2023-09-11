@@ -125,3 +125,5 @@ git pull origin main --allow-unrelated-histories #if there are errors
 git push -u origin main  # Push your code to GitHub
 git rm -r --cached logs
 
+git status
+git log
