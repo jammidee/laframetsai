@@ -3,6 +3,8 @@
 
 import express from 'express';
 import path from 'path';
+//import logger from './app/logging/logger';
+import logger from './app/logging/loggerotate';
 
 // Setup the environment variables - JMD 09/11/2023
 import * as dotenv from 'dotenv';
@@ -35,6 +37,7 @@ app.use('/user', userRoutes);
 
 app.get('/', (req, res) => {
 	res.send('Hello, Express with TypeScript!');
+	logger.info('API call to /api/resource', { query: req.query });
 });
 
 app.listen(globalPort, () => {

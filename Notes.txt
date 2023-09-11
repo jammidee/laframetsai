@@ -100,6 +100,9 @@ PUG 09/10/2023
 npm install express pug @types/express --save
 Sequelize 09/11/2023
 npm install sequelize --save 
+Winston logging module 09/11/2023
+npm install winston --save
+npm install winston-daily-rotate-file --save
 
 
 
