@@ -96,13 +96,16 @@ app.listen(3000, () => {
 
 LIBRARIES
 
-PUG 09/10/2023
+**PUG 09/10/2023
 npm install express pug @types/express --save
-Sequelize 09/11/2023
+**Sequelize 09/11/2023
 npm install sequelize --save 
-Winston logging module 09/11/2023
+**Winston logging module 09/11/2023
 npm install winston --save
 npm install winston-daily-rotate-file --save
+**Testing 09/12/2023
+npm install mocha chai ts-node @types/mocha @types/chai --save-dev
+npm install nyc --save-dev
 
 
 

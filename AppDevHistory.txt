@@ -10,6 +10,9 @@ Framework Design: 			Jammi Dee
 Developed / Programmed by : Joel Margate Damaso aka Jammi Dee
 Tested / QA by:				Jammi Dee
 
+09/12/2023  - added Mocha Chai for testing
+            - 
+
 09/11/2023  - added sequelize, added dotenv, added winston, added winston-daily-rotate-file
             - added header, make the logging folder variable
             - 
