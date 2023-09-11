@@ -26,11 +26,14 @@ import { createLogger, format, transports } from 'winston';
 import * as path from 'path';
 import { existsSync, mkdirSync } from 'fs';
 
+import * as dotenv from 'dotenv';
+dotenv.config();
+
 // Import the DailyRotateFile transport using require syntax
 const DailyRotateFile = require('winston-daily-rotate-file');
 
 // Create the log directory if it doesn't exist
-const logDir = '../../logs'; // You can change this directory path if needed
+const logDir = process.env.LOG_DIR || '../../logs' ;
 if (!existsSync(logDir)) {
   mkdirSync(logDir);
 }

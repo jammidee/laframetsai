@@ -127,3 +127,4 @@ git rm -r --cached logs
 
 git status
 git log
+git log --all --graph
