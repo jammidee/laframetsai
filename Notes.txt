@@ -98,6 +98,8 @@ LIBRARIES
 
 PUG 09/10/2023
 npm install express pug @types/express --save
+Sequelize 09/11/2023
+npm install sequelize --save 
 
 
 

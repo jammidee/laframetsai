@@ -2,9 +2,7 @@
 Lalulla Framework
 ============================================================================
 Copyright (C) Lalulla OPC , Inc - All Rights Reserved
-Unauthorized copying of this file, via any medium is strictly prohibited
-Proprietary and confidential. This file is part of CloudGate Framework.
-Written by Joel M. Damaso <jammidee@gmail.com>, September 12, 2017
+Written by Joel M. Damaso <jammidee@gmail.com>, September 10, 2023
 ============================================================================
  
 Software Architect: 		Jammi Dee
