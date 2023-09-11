@@ -123,3 +123,5 @@ git remote add origin https://github.com/jammidee/laframets.git  # Replace with 
 git pull origin main  #if there is error in push
 git pull origin main --allow-unrelated-histories #if there are errors
 git push -u origin main  # Push your code to GitHub
+git rm -r --cached logs
+
