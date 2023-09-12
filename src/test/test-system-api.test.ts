@@ -8,11 +8,13 @@ chai.use(chaiHttp);
 const expect = chai.expect;
 
 // Import your Express app or API server module
-import app from '../routes/user/user.route'; // Replace with your actual app import
+//import app from '../routes/user/user.route'; // Replace with your actual app import
+import app from '../app'; // Replace with your actual app import
 
 describe('API Tests', () => {
   it('should return a 200 status code for GET /api/endpoint', async () => {
-    const res = await chai.request(app).get('/'); // Replace with your endpoint
+    const res = await chai.request(app).get('/user'); // Replace with your endpoint
+    console.log(res);
     expect(res).to.have.status(200);
   });
 
