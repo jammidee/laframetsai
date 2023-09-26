@@ -12,6 +12,7 @@ npm install mysql2 --save
 
 1. Install the required dependencies
 2. In the application folder run:
+
    npx sequelize-cli init
 
    * This will create needed folder and config files.
@@ -19,7 +20,7 @@ npm install mysql2 --save
 
 3. Create a sample model:
 
-   npx sequelize-cli model:generate --name User --attributes name:string,email:string,password:string
+   npx sequelize-cli model:generate --name User --attributes name:string,email:string,password:string,lastseen:Date,lastupdate:date
    npx sequelize-cli db:migrate
 
 4. In the config/config.json
@@ -53,6 +54,43 @@ npm install mysql2 --save
 5. Execute the command to create tables:
 
     * npx sequelize-cli db:migrate //means default to development
+
     npx sequelize-cli db:migrate --env development
     npx sequelize-cli db:migrate --env test
     npx sequelize-cli db:migrate --env production
+
+
+6. Create database:
+
+    * Create the database manually inside MySQL
+
+    CREATE DATABASE db_dev CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+    CREATE DATABASE db_test CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+    CREATE DATABASE db_prod CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+
+7. Create a seeder for initial data:
+
+    npx sequelize-cli seed:generate --name seed-User
+    * Edit the generated file.
+
+    * Load initial data in the database
+    npx sequelize-cli db:seed:all
+
+    * Remove all data in the database
+    npx sequelize-cli db:seed:undo:all
+
+
+8. Adding New Column
+
+    * Edit the model and add the column.
+    * Edit User and add lastseen.
+
+    * Create a migration and add also the column there
+    npx sequelize-cli migration:generate --name add-lastseen-to-user
+    npx sequelize-cli db:migrate
+
+    * Altervative approach is to re-run the migration scripts without having to create a new migration scripts
+    npx sequelize-cli db:migrate:undo:all
+    npx sequelize-cli db:migrate
+
+9.

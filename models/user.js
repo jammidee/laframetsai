@@ -16,10 +16,25 @@ module.exports = (sequelize, DataTypes) => {
   User.init({
     name: DataTypes.STRING,
     email: DataTypes.STRING,
-    password: DataTypes.STRING
+    password: DataTypes.STRING,
+    lastseen: DataTypes.DATE,
   }, {
     sequelize,
     modelName: 'User',
   });
+
+  // Add hooks to set the 'lastseen' column
+  User.beforeCreate((user, options) => {
+    // Set 'lastseen' to the current datetime when a new record is created
+    user.lastseen = new Date();
+  });
+
+  //User.beforeUpdate((user, options) => {
+  //  // Set 'lastseen' to the current datetime when an existing record is updated
+  //  user.lastseen = new Date();
+  //});
+
+
+
   return User;
 };

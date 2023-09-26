@@ -12,6 +12,9 @@ Tested / QA by:				Jammi Dee
 
 09/26/2023  - added MySQL Management Tool
             - tested sequelize
+            - added sequelize seeder samples
+            - creating samples of migration scripts
+            - 
             
 09/12/2023  - added sequelize-ci and mysql2 in the library
             - initialize sequelize
