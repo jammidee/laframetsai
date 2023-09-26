@@ -103,7 +103,77 @@ CREATING Sequelize models
     * create a folder models inside src.
     * Create a file name user.model.ts
 
+        import { Table, Model, Column, DataType, DefaultScope, ForeignKey, BelongsTo } from "sequelize-typescript";
 
+        @Table({
+        timestamps: true,
+        createdAt: 'createdAt',
+        updatedAt: 'updatedAt',
+        tableName: "tblusers"
+        })
 
+        export class User extends Model {
+        @Column({
+            allowNull: false,
+            autoIncrement: true,
+            primaryKey: true,
+            type: DataType.INTEGER
+        })
+        ID!: number;
 
-2. 
+        @Column({
+            type: DataType.STRING
+        })
+        name!: String;
+
+        @Column({
+            type: DataType.STRING
+        })
+        email!: string;
+
+        @Column({
+            type: DataType.STRING
+        })
+        password!: string;
+
+        @Column({
+            type: DataType.DATE
+        })
+        lastseen!: Date;
+
+        @Column({
+            type: DataType.DATE
+        })
+        lastupdate!: Date;
+
+        @Column({
+            allowNull: false,
+            type: DataType.DATE
+        })
+        createdAt!: Date;
+
+        @Column({
+            allowNull: false,
+            type: DataType.DATE
+        })
+        updatedAt!: Date;
+
+        }
+
+2. Create a migrate script:
+
+    npx sequelize-cli migration:generate --name User-Create
+    npx sequelize-cli db:migrate
+
+    npx sequelize-cli migration:generate --name Department-Create
+    npx sequelize-cli db:migrate
+
+3. Create a Seed script
+
+    npx sequelize-cli seed:generate --name Department-Seed
+
+4. Run Seed
+
+    npx sequelize-cli db:seed:all
+
+5.

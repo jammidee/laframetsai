@@ -45,12 +45,12 @@ export class Department extends Model {
   @Column({
     type: DataType.STRING
   })
-  DEPTID!: String;
+  colid!: String;
 
   @Column({
     type: DataType.STRING
   })
-  DESCRIPTION!: string;
+  description!: string;
 
   @Column({
     allowNull: false,

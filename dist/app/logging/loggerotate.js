@@ -13,7 +13,7 @@
  * PARTICULAR PURPOSE.  See the GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with Cloud Gate System.  If not, see <http://www.gnu.org/licenses/>.
+ * along with Lalulla System.  If not, see <http://www.gnu.org/licenses/>.
  *
  * Framework Designed by: Jammi Dee (jammi_dee@yahoo.com)
  *

@@ -5,10 +5,10 @@ module.exports = {
   async up (queryInterface, Sequelize) {
 
     // Step 1: Delete or truncate data (remove existing rows)
-    await queryInterface.bulkDelete('Users', null, {});
+    await queryInterface.bulkDelete('tblusers', null, {});
 
     // Step 2: Reset auto-increment counter for the ID column
-    await queryInterface.sequelize.query('ALTER TABLE Users AUTO_INCREMENT = 1');
+    await queryInterface.sequelize.query('ALTER TABLE tblusers AUTO_INCREMENT = 1');
 
 
     // Step 3: Insert new data (seed data)
@@ -21,7 +21,7 @@ module.exports = {
      *   isBetaMember: false
      * }], {});
     */
-    await queryInterface.bulkInsert('Users', [
+    await queryInterface.bulkInsert('tblusers', [
         {
           name: 'Jammi Dee',
           email: 'jammi_dee@yahoo.com',
@@ -51,6 +51,6 @@ module.exports = {
        * Example:
        * await queryInterface.bulkDelete('People', null, {});
        */
-      await queryInterface.bulkDelete('Users', null, {});
+      await queryInterface.bulkDelete('tblusers', null, {});
   }
 };

@@ -83,12 +83,6 @@ app.listen(globalPort, () => {
 	console.log('Server is running on port 3000');
 });
 
-try {
-    await sequelize.sync(); // This will create the "users" table based on the User model
-    // ...
-  } catch (error) {
-    console.error('Database synchronization error:', error);
-  }
 
 
 export default app;

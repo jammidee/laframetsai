@@ -4,9 +4,9 @@
 module.exports = {
   async up (queryInterface, Sequelize) {
 
-    await queryInterface.addColumn('Users', 'lastupdate', {
-      type: Sequelize.DATE, // Use DATE for DATETIME data type
-      allowNull: true, // Adjust this based on your requirements
+    await queryInterface.addColumn('Users', 'isdeleted', {
+      type: Sequelize.INTEGER,
+      allowNull: true,
     });
 
   },

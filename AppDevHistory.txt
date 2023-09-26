@@ -17,6 +17,7 @@ Tested / QA by:				Jammi Dee
             - added npm cors module
             - added sequelized type scripting
             - added tblusers and tbldepartments tables
+            - completed sample tables and seeders
             - 
             
 09/12/2023  - added sequelize-ci and mysql2 in the library

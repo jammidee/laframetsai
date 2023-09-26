@@ -13,11 +13,11 @@
  * PARTICULAR PURPOSE.  See the GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with Cloud Gate System.  If not, see <http://www.gnu.org/licenses/>.
+ * along with Lalulla System.  If not, see <http://www.gnu.org/licenses/>.
  *
  * Framework Designed by: Jammi Dee (jammi_dee@yahoo.com)
  *
- * File Create Date: 09/11/2023
+ * File Create Date: 09/26/2023 4:33pm
  * Created by: Jammi Dee
  * Modified by: Jammi Dee
  *
@@ -45,50 +45,30 @@ var __importStar = (this && this.__importStar) || function (mod) {
     __setModuleDefault(result, mod);
     return result;
 };
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
-const express_1 = __importStar(require("express"));
-const cors_1 = __importDefault(require("cors"));
-const path_1 = __importDefault(require("path"));
-//import logger from './app/logging/logger';
-const loggerotate_1 = __importDefault(require("./app/logging/loggerotate"));
-// Setup the environment variables - JMD 09/11/2023
+exports.connection = void 0;
+const sequelize_typescript_1 = require("sequelize-typescript");
+const department_model_1 = require("../models/department.model");
 const dotenv = __importStar(require("dotenv"));
 dotenv.config();
-const app = (0, express_1.default)();
-//=============
-// Middlewares
-//=============
-app.use((0, cors_1.default)());
-app.use((0, express_1.urlencoded)({ extended: false }));
-app.use((0, express_1.json)());
-//app.use(express.static(path.join(__dirname, '../upload')));
-//==================
-// Global Variables
-//==================
-const globalPort = process.env.PORT || 3000;
-//==================
-// Framework Setup
-//==================
-// Set Pug as the view engine
-app.set('view engine', 'pug');
-// Specify the directory where your Pug templates are located
-app.set('views', path_1.default.join(__dirname, 'views'));
-//===================
-// Routes Entry Point
-//===================
-const user_route_1 = __importDefault(require("./routes/user/user.route"));
-//===================
-// Route Usage Point
-//===================
-app.use('/user', user_route_1.default);
-app.get('/', (req, res) => {
-    res.send('Hello, Express with TypeScript!');
-    loggerotate_1.default.info('API call to /api/resource', { query: req.query });
+exports.connection = new sequelize_typescript_1.Sequelize({
+    dialect: "mysql",
+    host: process.env.DB_HOST,
+    port: Number(process.env.DB_PORT),
+    username: process.env.DB_USERNAME,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_NAME,
+    logging: false,
+    models: [
+        department_model_1.Department
+    ]
 });
-app.listen(globalPort, () => {
-    console.log('Server is running on port 3000');
-});
-exports.default = app;
+async function connectionDB() {
+    try {
+        await exports.connection.sync();
+    }
+    catch (error) {
+        console.log(error);
+    }
+}
+exports.default = connectionDB;
