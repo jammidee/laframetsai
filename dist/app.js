@@ -76,6 +76,13 @@ const globalPort = process.env.PORT || 3000;
 app.set('view engine', 'pug');
 // Specify the directory where your Pug templates are located
 app.set('views', path_1.default.join(__dirname, 'views'));
+//=========
+// Helpers
+//=========
+const initjsonvars_1 = __importDefault(require("./app/helpers/initjsonvars"));
+(async () => {
+    await (0, initjsonvars_1.default)();
+})();
 //===================
 // Routes Entry Point
 //===================
@@ -84,11 +91,14 @@ const user_route_1 = __importDefault(require("./routes/user/user.route"));
 // Route Usage Point
 //===================
 app.use('/user', user_route_1.default);
+app.use((req, res) => {
+    res.status(404).json({ status: 404, message: "Invalid route!" });
+});
 app.get('/', (req, res) => {
     res.send('Hello, Express with TypeScript!');
-    loggerotate_1.default.info('API call to /api/resource', { query: req.query });
+    loggerotate_1.default.info(`API call to /api/resource`, { query: req.query });
 });
 app.listen(globalPort, () => {
-    console.log('Server is running on port 3000');
+    console.log(`Server is running on port ${globalPort}`);
 });
 exports.default = app;

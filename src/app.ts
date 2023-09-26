@@ -60,12 +60,23 @@ app.set('view engine', 'pug');
 // Specify the directory where your Pug templates are located
 app.set('views', path.join(__dirname, 'views'));
 
+//=========
+// Helpers
+//=========
+import initJSONVars from './app/helpers/initjsonvars';
+(async () => {
+
+	await initJSONVars();
+
+  })();
 
 
+  
 //===================
 // Routes Entry Point
 //===================
 import userRoutes from './routes/user/user.route';
+
 
 
 //===================
@@ -74,15 +85,17 @@ import userRoutes from './routes/user/user.route';
 app.use('/user', userRoutes);
 
 
+app.use((req, res) => {
+	res.status(404).json({ status: 404, message: "Invalid route!" });
+  });
+
 app.get('/', (req, res) => {
 	res.send('Hello, Express with TypeScript!');
-	logger.info('API call to /api/resource', { query: req.query });
+	logger.info(`API call to /api/resource`, { query: req.query });
 });
 
 app.listen(globalPort, () => {
-	console.log('Server is running on port 3000');
+	console.log(`Server is running on port ${globalPort}`);
 });
-
-
 
 export default app;
