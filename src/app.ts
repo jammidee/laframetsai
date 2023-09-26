@@ -23,21 +23,33 @@
 */
 
 
-import express from 'express';
+import express, { json, urlencoded } from 'express';
+import cors from "cors";
+
 import path from 'path';
 //import logger from './app/logging/logger';
 import logger from './app/logging/loggerotate';
+
+import { sequelize } from './connection/sequelize';
 
 // Setup the environment variables - JMD 09/11/2023
 import * as dotenv from 'dotenv';
 dotenv.config();
 
+const app = express();
+
+//=============
+// Middlewares
+//=============
+app.use(cors());
+app.use(urlencoded({ extended: false }))
+app.use(json());
+//app.use(express.static(path.join(__dirname, '../upload')));
+
 //==================
 // Global Variables
 //==================
 const globalPort = process.env.PORT || 3000;
-
-const app = express();
 
 //==================
 // Framework Setup
@@ -71,6 +83,12 @@ app.listen(globalPort, () => {
 	console.log('Server is running on port 3000');
 });
 
+try {
+    await sequelize.sync(); // This will create the "users" table based on the User model
+    // ...
+  } catch (error) {
+    console.error('Database synchronization error:', error);
+  }
 
 
 export default app;

@@ -14,6 +14,9 @@ Tested / QA by:				Jammi Dee
             - tested sequelize
             - added sequelize seeder samples
             - creating samples of migration scripts
+            - added npm cors module
+            - added sequelized type scripting
+            - added tblusers and tbldepartments tables
             - 
             
 09/12/2023  - added sequelize-ci and mysql2 in the library

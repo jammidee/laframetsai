@@ -16,24 +16,24 @@
  * 
  * Framework Designed by: Jammi Dee (jammi_dee@yahoo.com)
  *
- * File Create Date: 09/11/2023
+ * File Create Date: 09/26/2023 3:46pm
  * Created by: Jammi Dee
  * Modified by: Jammi Dee
  *
 */
 
-import { createLogger, transports, format } from 'winston';
+import { Sequelize } from 'sequelize';
 
-// Define the logger configuration
-const logger = createLogger({
-  level: 'info', // Set the log level as needed (info, warn, error, etc.)
-  format: format.combine(
-    format.timestamp(),
-    format.json()
-  ),
-  transports: [
-    new transports.File({ filename: 'logs/api.log' }) // Log to a file named 'api.log'
-  ]
+import * as dotenv from 'dotenv';
+dotenv.config();
+
+// Define your database connection parameters (from your .env file or elsewhere)
+const sequelize = new Sequelize({
+  dialect: 'mysql',
+  host: process.env.DB_HOST,
+  username: process.env.DB_USERNAME,
+  password: process.env.DB_PASSWORD,
+  database: process.env.DB_NAME,
 });
 
-export default logger;
+export { sequelize };

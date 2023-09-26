@@ -106,6 +106,8 @@ LIBRARIES
 npm install express pug @types/express --save
 **Sequelize 09/11/2023
 npm install sequelize --save 
+**Sequelize TypeScript 09/26/2023
+npm install sequelize sequelize-typescript @types/sequelize --save
 **Winston logging module 09/11/2023
 npm install winston --save
 npm install winston-daily-rotate-file --save
@@ -118,6 +120,9 @@ npm install chai chai-http --save-dev
 npm install sequelize-cli --save
 **MySQL Driver 09/22/2023
 npm install mysql2 --save
+
+**Cross-Origin Resource Sharing 09/26/2023
+npm install cors @types/cors --save
 
 
 GIT - G1thUUb@!!M3

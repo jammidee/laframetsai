@@ -94,3 +94,16 @@ npm install mysql2 --save
     npx sequelize-cli db:migrate
 
 9.
+
+
+CREATING Sequelize models
+
+1. Replacement for step 3 above.
+
+    * create a folder models inside src.
+    * Create a file name user.model.ts
+
+
+
+
+2. 

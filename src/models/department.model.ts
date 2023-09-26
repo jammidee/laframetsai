@@ -16,24 +16,52 @@
  * 
  * Framework Designed by: Jammi Dee (jammi_dee@yahoo.com)
  *
- * File Create Date: 09/11/2023
+ * File Create Date: 09/26/2023 4:35pm
  * Created by: Jammi Dee
  * Modified by: Jammi Dee
  *
 */
 
-import { createLogger, transports, format } from 'winston';
+import { Table, Model, Column, DataType, DefaultScope, ForeignKey, BelongsTo } from "sequelize-typescript";
+//import { Product } from "./product.model";
 
-// Define the logger configuration
-const logger = createLogger({
-  level: 'info', // Set the log level as needed (info, warn, error, etc.)
-  format: format.combine(
-    format.timestamp(),
-    format.json()
-  ),
-  transports: [
-    new transports.File({ filename: 'logs/api.log' }) // Log to a file named 'api.log'
-  ]
-});
 
-export default logger;
+@Table({
+  timestamps: true,
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt',
+  tableName: "tbldepartments"
+})
+
+export class Department extends Model {
+  @Column({
+    allowNull: false,
+    autoIncrement: true,
+    primaryKey: true,
+    type: DataType.INTEGER
+  })
+  ID!: number;
+
+  @Column({
+    type: DataType.STRING
+  })
+  DEPTID!: String;
+
+  @Column({
+    type: DataType.STRING
+  })
+  DESCRIPTION!: string;
+
+  @Column({
+    allowNull: false,
+    type: DataType.DATE
+  })
+  createdAt!: Date;
+
+  @Column({
+    allowNull: false,
+    type: DataType.DATE
+  })
+  updatedAt!: Date;
+
+}
