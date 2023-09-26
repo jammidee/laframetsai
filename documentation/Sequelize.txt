@@ -1,0 +1,58 @@
+Added: by Jammi Dee
+Date: 09/22/2023
+
+REQUIREMENTS
+============
+**Sequelize 09/11/2023
+npm install sequelize --save 
+**Sequelize 09/22/2023
+npm install sequelize-cli --save
+**MySQL Driver 09/22/2023
+npm install mysql2 --save
+
+1. Install the required dependencies
+2. In the application folder run:
+   npx sequelize-cli init
+
+   * This will create needed folder and config files.
+   * Creates models, migrations, seeders, and config folders
+
+3. Create a sample model:
+
+   npx sequelize-cli model:generate --name User --attributes name:string,email:string,password:string
+   npx sequelize-cli db:migrate
+
+4. In the config/config.json
+
+    * Setup the correct table config.
+
+    {
+        "development": {
+            "username": "root",
+            "password": "password",
+            "database": "db_dev",
+            "host": "127.0.0.1",
+            "dialect": "mysql"
+        },
+        "test": {
+            "username": "root",
+            "password": "password",
+            "database": "db_test",
+            "host": "127.0.0.1",
+            "dialect": "mysql"
+        },
+        "production": {
+            "username": "root",
+            "password": "password",
+            "database": "db_prod",
+            "host": "127.0.0.1",
+            "dialect": "mysql"
+        }
+    }
+
+5. Execute the command to create tables:
+
+    * npx sequelize-cli db:migrate //means default to development
+    npx sequelize-cli db:migrate --env development
+    npx sequelize-cli db:migrate --env test
+    npx sequelize-cli db:migrate --env production

@@ -93,6 +93,12 @@ app.listen(3000, () => {
 13. node build.js
 14. node dist/app.js
 
+EXTENSIONS
+
+1. Rest Client - Huachao Mao
+2. Tabstop Whitespace Converter - Johnny Wong
+3. Prettier - Code Fomratter - Prettier
+4. MySQL - MySQL Management Tool - Jun Han
 
 LIBRARIES
 
@@ -107,6 +113,11 @@ npm install winston-daily-rotate-file --save
 npm install mocha chai ts-node @types/mocha @types/chai --save-dev
 npm install nyc --save-dev
 npm install chai chai-http --save-dev
+
+**Sequelize 09/22/2023
+npm install sequelize-cli --save
+**MySQL Driver 09/22/2023
+npm install mysql2 --save
 
 
 GIT - G1thUUb@!!M3

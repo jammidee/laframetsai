@@ -10,6 +10,13 @@ Framework Design: 			Jammi Dee
 Developed / Programmed by : Joel Margate Damaso aka Jammi Dee
 Tested / QA by:				Jammi Dee
 
+09/26/2023  - added MySQL Management Tool
+            - tested sequelize
+            
+09/12/2023  - added sequelize-ci and mysql2 in the library
+            - initialize sequelize
+            - 
+
 09/12/2023  - added Mocha Chai for testing
             - 
 

@@ -39,11 +39,16 @@ const globalPort = process.env.PORT || 3000;
 
 const app = express();
 
+//==================
+// Framework Setup
+//==================
 // Set Pug as the view engine
 app.set('view engine', 'pug');
 
 // Specify the directory where your Pug templates are located
 app.set('views', path.join(__dirname, 'views'));
+
+
 
 //===================
 // Routes Entry Point
