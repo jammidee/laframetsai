@@ -64,7 +64,7 @@ function authenticateToken(req, res, next) {
     }
     jsonwebtoken_1.default.verify(token, secret, (err, user) => {
         if (err) {
-            return res.status(403).json({ message: "Invalid token." });
+            return res.status(403).json({ message: "Invalid token.", err: err });
         }
         // Attach the user object to the request for use in other middleware or routes
         req["user"] = user;
@@ -77,7 +77,7 @@ function generateJWT() {
         // Generate a JWT token
         const secret = process.env.JWT_SECRET || "";
         return jsonwebtoken_1.default.sign({ username: process.env.BASIC_USERNAME }, secret, {
-            expiresIn: process.env.TOKEN_EXPIRE, // Token expiration time (adjust as needed)
+            expiresIn: process.env.TOKEN_EXPIRE || 60, // Token expiration time (adjust as needed)
         });
     }
     catch (error) {
@@ -128,6 +128,7 @@ async function janusAuthentication(req, res, next) {
     catch (error) {
         if (error instanceof axios_1.AxiosError && error.response?.data?.status === 401) {
             return res.status(401).json({ message: "Unauthorized access token." });
+            ;
         }
         console.log(error);
         throw error;

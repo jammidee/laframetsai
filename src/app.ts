@@ -71,17 +71,22 @@ import initJSONVars from './app/helpers/initjsonvars';
   })();
 
 
-  
+
 //===================
 // Routes Entry Point
 //===================
+import SecurityRoutes from './routes/security/security.route';
 import userRoutes from './routes/user/user.route';
+
 
 
 
 //===================
 // Route Usage Point
 //===================
+app.use('/api/v1/security', SecurityRoutes);
+
+
 app.use('/user', userRoutes);
 
 

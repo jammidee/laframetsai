@@ -86,10 +86,12 @@ const initjsonvars_1 = __importDefault(require("./app/helpers/initjsonvars"));
 //===================
 // Routes Entry Point
 //===================
+const security_route_1 = __importDefault(require("./routes/security/security.route"));
 const user_route_1 = __importDefault(require("./routes/user/user.route"));
 //===================
 // Route Usage Point
 //===================
+app.use('/api/v1/security', security_route_1.default);
 app.use('/user', user_route_1.default);
 app.use((req, res) => {
     res.status(404).json({ status: 404, message: "Invalid route!" });

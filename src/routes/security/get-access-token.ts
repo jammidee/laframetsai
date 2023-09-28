@@ -23,30 +23,36 @@
 */
 
 import { RequestHandler } from "express";
-import { generateJWT } from "../app/helpers/jwt-generate";
+import { generateJWT } from "../../app/helpers/jwt-generate";
 
 export const accessToken: RequestHandler = async (req, res) => {
-  // Extract Basic Auth credentials from the request header
-  const authHeader = req.headers.authorization;
-  if (!authHeader || !authHeader.startsWith("Basic ")) {
-    return res.status(401).json({ message: "Invalid credentials." });
-  }
 
-  // Decode and split the Basic Auth credentials
-  const base64Credentials = authHeader.split(" ")[1];
-  const credentials = Buffer.from(base64Credentials, "base64").toString(
-    "utf-8"
-  );
-  const [username, password] = credentials.split(":");
+    // Extract Basic Auth credentials from the request header
+    const authHeader = req.headers.authorization;
+    if (!authHeader || !authHeader.startsWith("Basic ")) {
+
+        return res.status(401).json({ message: "Invalid credentials." });
+        
+    }
+
+    // Decode and split the Basic Auth credentials
+    const base64Credentials = authHeader.split(" ")[1];
+    const credentials = Buffer.from(base64Credentials, "base64").toString( "utf-8" );
+    const [username, password] = credentials.split(":");
     
-  // Replace this with your actual user authentication logic (e.g., check a database)
-  if (username === process.env.BASIC_USERNAME && password === process.env.BASIC_PASSWORD) {
-    // Generate an access token (replace with your JWT or OAuth2 logic)
-    const accessToken = generateJWT();
+    // Replace this with your actual user authentication logic (e.g., check a database)
+    if (username === process.env.BASIC_USERNAME && password === process.env.BASIC_PASSWORD) {
 
-    // Respond with the access token
-    return res.json({ access_token: accessToken });
-} else {
-    return res.status(401).json({ message: "Invalid username or password." });
-  }
+        // Generate an access token (replace with your JWT or OAuth2 logic)
+        const accessToken = generateJWT();
+
+        // Respond with the access token
+        return res.json({ access_token: accessToken });
+
+    } else {
+
+        return res.status(401).json({ message: "Invalid username or password." });
+
+    }
+
 };

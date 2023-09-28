@@ -1,0 +1,29 @@
+
+###
+
+@hostname = localhost
+@port = 3000
+@host = {{hostname}}:{{port}}
+@baseUrl = http://{{host}}
+@basePath = /api/v1/security
+
+
+# @name security
+GET {{baseUrl}}/api/v1/security HTTP/1.1
+Content-Type: application/x-www-form-urlencoded
+
+###
+
+# @name get-access-token
+GET {{baseUrl}}/api/v1/security/getaccesstoken HTTP/1.1
+Authorization: Basic {{$dotenv BASIC_USERNAME}}:{{$dotenv BASIC_PASSWORD}}
+
+###
+
+@token = eyJ1c2VybmFtZSI6ImphbWVzd2ViIiwiaWF0IjoxNjk1ODgwNjUxLCJleHAiOjE2OTU4ODA2NjF9
+
+# @name validate-token
+GET {{baseUrl}}/api/v1/security/validatetoken HTTP/1.1
+Authorization: Bearer {{token}}
+
+###
