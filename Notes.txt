@@ -124,6 +124,18 @@ npm install mysql2 --save
 **Cross-Origin Resource Sharing 09/26/2023
 npm install cors @types/cors --save
 
+**Axios Module 09/28/2023
+npm install axios @types/axios --save
+
+**JSON Web Token
+npm install jsonwebtoken @types/jsonwebtoken --save
+
+AUDIT
+**Run Audit for vulnerabilty
+npm audit
+**If there is a fix run:
+npm audit fix 
+
 
 GIT - G1thUUb@!!M3
 ---
