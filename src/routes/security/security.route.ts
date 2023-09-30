@@ -23,8 +23,8 @@
 */
 
 import { Router } from "express";
-import { accessToken } from "./get-access-token";
-import { validateToken } from "./validate-token";
+import { accessToken, userToken } from "./controller/get-access-token";
+import { validateToken } from "./controller/validate-token";
 import { authenticateToken } from "../../app/helpers/jwt-generate";
 
 const SecurityRoutes = Router();
@@ -33,8 +33,10 @@ SecurityRoutes.get("/", (req, res) => {
   res.json({ message: "Security Route API" });
 });
 
-SecurityRoutes.use("/getaccesstoken", accessToken );
-SecurityRoutes.get("/validatetoken", authenticateToken, validateToken  );
+SecurityRoutes.use("/getaccesstoken", accessToken );                            //JMD 09/28/2023
+SecurityRoutes.use("/getusertoken", userToken );                                //JMD 09/30/2023
+
+SecurityRoutes.get("/validatetoken", authenticateToken, validateToken  );       //JMD 09/28/2023
 
 
 

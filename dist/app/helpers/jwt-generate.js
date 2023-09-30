@@ -49,7 +49,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.janusAuthentication = exports.generateJWT = exports.authenticateToken = void 0;
+exports.janusAuthentication = exports.generateUserJWT = exports.authenticateUserToken = exports.generateJWT = exports.authenticateToken = void 0;
 const axios_1 = __importStar(require("axios"));
 const jsonwebtoken_1 = __importDefault(require("jsonwebtoken"));
 // Define a middleware function for JWT authentication
@@ -85,6 +85,40 @@ function generateJWT() {
     }
 }
 exports.generateJWT = generateJWT;
+//Added by Jammi Dee 09/30/2023
+function authenticateUserToken(req, res, next) {
+    let token = req.header("Authorization") || "";
+    const secret = process.env.JWT_SECRET || "";
+    token = token.replace("Bearer ", "");
+    if (!token) {
+        return res
+            .status(401)
+            .json({ message: "Access denied. No token provided." });
+    }
+    jsonwebtoken_1.default.verify(token, secret, (err, loggeduser) => {
+        if (err) {
+            return res.status(403).json({ message: "Invalid token.", err: err });
+        }
+        // Attach the user object to the request for use in other middleware or routes
+        req["user"] = loggeduser;
+        next(); // Continue to the next middleware or route
+    });
+}
+exports.authenticateUserToken = authenticateUserToken;
+//Added by Jammi Dee 09/30/2023
+function generateUserJWT(user) {
+    try {
+        // Generate a JWT token
+        const secret = process.env.JWT_SECRET || "";
+        return jsonwebtoken_1.default.sign(user, secret, {
+            expiresIn: process.env.TOKEN_EXPIRE || 60, // Token expiration time (adjust as needed)
+        });
+    }
+    catch (error) {
+        console.log(error);
+    }
+}
+exports.generateUserJWT = generateUserJWT;
 async function janusAuthentication(req, res, next) {
     let token = req.header("Authorization") || "";
     token = token.replace("Bearer ", "");
@@ -135,3 +169,4 @@ async function janusAuthentication(req, res, next) {
     }
 }
 exports.janusAuthentication = janusAuthentication;
+//# sourceMappingURL=jwt-generate.js.map

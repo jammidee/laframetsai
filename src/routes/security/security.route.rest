@@ -14,16 +14,30 @@ Content-Type: application/x-www-form-urlencoded
 
 ###
 
-# @name get-access-token
+# @name getaccesstoken
 GET {{baseUrl}}/api/v1/security/getaccesstoken HTTP/1.1
 Authorization: Basic {{$dotenv BASIC_USERNAME}}:{{$dotenv BASIC_PASSWORD}}
+Content-Type: application/json
 
 ###
 
-@token = eyJ1c2VybmFtZSI6ImphbWVzd2ViIiwiaWF0IjoxNjk1ODgwNjUxLCJleHAiOjE2OTU4ODA2NjF9
+@token = {{getaccesstoken.response.body.$.access_token}}
 
-# @name validate-token
+# @name validatetoken
 GET {{baseUrl}}/api/v1/security/validatetoken HTTP/1.1
 Authorization: Bearer {{token}}
 
 ###
+
+# @name getusertoken
+GET {{baseUrl}}/api/v1/security/getusertoken HTTP/1.1
+Authorization: Basic jammi_dee@yahoo.com:sadmin12345!
+Content-Type: application/json
+
+###
+
+@usertoken = {{getusertoken.response.body.$.access_token}}
+
+# @name validatetoken
+GET {{baseUrl}}/api/v1/security/validatetoken HTTP/1.1
+Authorization: Bearer {{usertoken}}

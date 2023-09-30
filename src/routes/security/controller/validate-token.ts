@@ -12,27 +12,22 @@
  * PARTICULAR PURPOSE.  See the GNU General Public License for more details.
  * 
  * You should have received a copy of the GNU General Public License
- * along with Cloud Gate System.  If not, see <http://www.gnu.org/licenses/>.
+ * along with Lalulla System.  If not, see <http://www.gnu.org/licenses/>.
  * 
  * Framework Designed by: Jammi Dee (jammi_dee@yahoo.com)
  *
- * File Create Date: 09/11/2023
+ * File Create Date: 09/28/2023 01:39pm
  * Created by: Jammi Dee
  * Modified by: Jammi Dee
  *
 */
 
-import { Router, Request, Response } from 'express';
-import path from 'path';
+import { RequestHandler } from "express";
 
-const UserRoutes = Router();
+export const validateToken: RequestHandler = async (req, res) => {
 
-// Define your user-related routes here
-UserRoutes.get('/', (req: Request, res: Response) => {
-	
-	res.render('user/user', { username: 'John' });
-	//const filePath = path.join(__dirname, '../..', 'views', 'user', 'user.html');
-	//res.sendFile(filePath);
+    console.log(req["user"]);
 
-});
-export default UserRoutes;
+    return res.status(200).json({ status: 200 , message: "Valid token!!!" });
+
+};

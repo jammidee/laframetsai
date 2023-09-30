@@ -23,7 +23,8 @@
 */
 
 import { RequestHandler } from "express";
-import { generateJWT } from "../../app/helpers/jwt-generate";
+import { generateJWT, generateUserJWT } from "../../../app/helpers/jwt-generate";
+import { User } from "../../../models/user.model";
 
 export const accessToken: RequestHandler = async (req, res) => {
 
@@ -53,6 +54,63 @@ export const accessToken: RequestHandler = async (req, res) => {
 
         return res.status(401).json({ message: "Invalid username or password." });
 
+    }
+
+};
+
+//Added by Jammi Dee 09/03/2023
+export const userToken: RequestHandler = async (req, res) => {
+
+    // Extract Basic Auth credentials from the request header
+    const authHeader = req.headers.authorization;
+    if (!authHeader || !authHeader.startsWith("Basic ")) {
+
+        return res.status(401).json({ message: "Invalid credentials.", status: 401 });
+        
+    }
+
+    // Decode and split the Basic Auth credentials
+    const base64Credentials = authHeader.split(" ")[1];
+    const credentials = Buffer.from(base64Credentials, "base64").toString( "utf-8" );
+    const [username, password] = credentials.split(":");
+    
+    try {
+        
+        const user = await User.findOne({
+            where: {
+              email: username,
+              password: password,
+            },
+          });
+
+          if (user) {
+
+            console.log('User found:', user.toJSON());
+
+            //Plain object of User, password attribute removed
+            //const userObject = {...user.toJSON()};
+            //delete userObject.password
+            
+            const { password, ...userObject } = user.toJSON();
+
+            const accessToken = generateUserJWT( userObject );
+            // Respond with the access token
+            return res.json({ access_token: accessToken });
+
+          } else {
+
+            console.log('User not found');
+            return res.status(404).json({ message: "Invalid credentials.", status: 404 });
+
+          }
+
+    } catch (error: any) {
+
+        console.error('Error:', error);
+        // If there is an error, return an error response
+        return res.status(500).json({ message: "Internal Server Error", error: error.message, status: 500 });
+    
+        
     }
 
 };

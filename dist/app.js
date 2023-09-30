@@ -13,7 +13,7 @@
  * PARTICULAR PURPOSE.  See the GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with Cloud Gate System.  If not, see <http://www.gnu.org/licenses/>.
+ * along with Lalulla System.  If not, see <http://www.gnu.org/licenses/>.
  *
  * Framework Designed by: Jammi Dee (jammi_dee@yahoo.com)
  *
@@ -79,9 +79,11 @@ app.set('views', path_1.default.join(__dirname, 'views'));
 //=========
 // Helpers
 //=========
+const connectiondb_1 = __importDefault(require("./connection/connectiondb"));
 const initjsonvars_1 = __importDefault(require("./app/helpers/initjsonvars"));
 (async () => {
-    await (0, initjsonvars_1.default)();
+    await (0, connectiondb_1.default)(); //JMD 09/30/2023
+    await (0, initjsonvars_1.default)(); //JMD 09/28/2023
 })();
 //===================
 // Routes Entry Point
@@ -92,6 +94,7 @@ const user_route_1 = __importDefault(require("./routes/user/user.route"));
 // Route Usage Point
 //===================
 app.use('/api/v1/security', security_route_1.default);
+app.use('/api/v1/user', user_route_1.default);
 app.use('/user', user_route_1.default);
 app.use((req, res) => {
     res.status(404).json({ status: 404, message: "Invalid route!" });
@@ -104,3 +107,4 @@ app.listen(globalPort, () => {
     console.log(`Server is running on port ${globalPort}`);
 });
 exports.default = app;
+//# sourceMappingURL=app.js.map

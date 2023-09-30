@@ -13,14 +13,22 @@ Creation:
 3. Create tsconfig.json
 
 {
-  "compilerOptions": {
-    "target": "ES2020",
-    "module": "CommonJS",
-    "outDir": "./dist",
-    "rootDir": "./src",
-    "strict": true,
-    "esModuleInterop": true
-  }
+	"compilerOptions": {
+		"target": "ES2020",
+		"experimentalDecorators": true,
+		"module": "CommonJS",
+		"sourceMap": true,
+		"outDir": "./dist",
+		"rootDir": "./src",
+		"strict": true,
+		"noImplicitAny": true,
+		"strictPropertyInitialization": false,
+		"alwaysStrict": true,
+		"esModuleInterop": true,
+		"types": ["node"]
+	},
+	"include": ["src/**/*.ts", "src/**/*.html", "src/test/**/*.ts" ],
+	"exclude": ["node_modules", "**/*.spec.ts"]
 }
 
 4. Create a folder src

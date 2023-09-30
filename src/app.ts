@@ -12,7 +12,7 @@
  * PARTICULAR PURPOSE.  See the GNU General Public License for more details.
  * 
  * You should have received a copy of the GNU General Public License
- * along with Cloud Gate System.  If not, see <http://www.gnu.org/licenses/>.
+ * along with Lalulla System.  If not, see <http://www.gnu.org/licenses/>.
  * 
  * Framework Designed by: Jammi Dee (jammi_dee@yahoo.com)
  *
@@ -63,10 +63,13 @@ app.set('views', path.join(__dirname, 'views'));
 //=========
 // Helpers
 //=========
+import connectionDB from './connection/connectiondb';
 import initJSONVars from './app/helpers/initjsonvars';
+
 (async () => {
 
-	await initJSONVars();
+	await connectionDB();		//JMD 09/30/2023
+	await initJSONVars();		//JMD 09/28/2023
 
   })();
 
@@ -76,18 +79,16 @@ import initJSONVars from './app/helpers/initjsonvars';
 // Routes Entry Point
 //===================
 import SecurityRoutes from './routes/security/security.route';
-import userRoutes from './routes/user/user.route';
-
-
+import UserRoutes from './routes/user/user.route';
 
 
 //===================
 // Route Usage Point
 //===================
-app.use('/api/v1/security', SecurityRoutes);
+app.use('/api/v1/security', 		SecurityRoutes);
+app.use('/api/v1/user', 			UserRoutes);
 
-
-app.use('/user', userRoutes);
+app.use('/user', 					UserRoutes);
 
 
 app.use((req, res) => {

@@ -13,3 +13,4 @@ const math_1 = require("./math"); // Import the module to test
         (0, chai_1.expect)(result).to.equal(-3);
     });
 });
+//# sourceMappingURL=test-system-mod.test.js.map

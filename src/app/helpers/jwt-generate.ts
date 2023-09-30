@@ -84,6 +84,55 @@ export function generateJWT() {
 
 }
 
+//Added by Jammi Dee 09/30/2023
+export function authenticateUserToken( req: Request,  res: Response, next: NextFunction) {
+
+    let token = req.header("Authorization") || "";
+    const secret = process.env.JWT_SECRET || "";
+    token = token.replace("Bearer ", "");
+
+    if (!token) {
+        return res
+        .status(401)
+        .json({ message: "Access denied. No token provided." });
+    }
+
+    jwt.verify(token, secret, (err: any, loggeduser: any) => {
+
+        if (err) {
+            return res.status(403).json({ message: "Invalid token.", err: err });
+        }
+
+        // Attach the user object to the request for use in other middleware or routes
+        req["user"] = loggeduser;
+
+        next(); // Continue to the next middleware or route
+
+    });
+}
+
+//Added by Jammi Dee 09/30/2023
+export function generateUserJWT(user: any) {
+
+    try {
+
+        // Generate a JWT token
+        const secret = process.env.JWT_SECRET || "";
+        
+        return jwt.sign( user, secret, {
+
+            expiresIn: process.env.TOKEN_EXPIRE || 60, // Token expiration time (adjust as needed)
+
+        });
+
+    } catch (error) {
+
+        console.log(error);
+
+    }
+
+}
+
 export async function janusAuthentication( req: Request, res: Response, next: NextFunction) {
 
     let token = req.header("Authorization") || "";

@@ -24,3 +24,4 @@ Lookup.init({
     tableName: 'tbllookup', // Name of the database table (optional)
 });
 exports.default = Lookup;
+//# sourceMappingURL=lookup.model.js.map

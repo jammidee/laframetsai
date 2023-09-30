@@ -23,6 +23,7 @@
 */
 
 import { Sequelize } from "sequelize-typescript";
+import { User } from "../models/user.model";
 import { Department } from "../models/department.model";
 
 import * as dotenv from 'dotenv';
@@ -37,7 +38,7 @@ export const connection = new Sequelize({
     database: process.env.DB_NAME,
     logging: false,
     models: [
-        Department
+        User, Department
     ]
 })
 

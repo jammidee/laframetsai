@@ -59,3 +59,4 @@ const sequelize = new sequelize_1.Sequelize({
     database: process.env.DB_NAME,
 });
 exports.sequelize = sequelize;
+//# sourceMappingURL=sequelize.js.map
