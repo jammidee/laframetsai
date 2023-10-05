@@ -80,6 +80,7 @@ import initJSONVars from './app/helpers/initjsonvars';
 //===================
 import SecurityRoutes from './routes/security/security.route';
 import UserRoutes from './routes/user/user.route';
+import LookupRoutes from './routes/lookup/lookup.route';
 
 
 //===================
@@ -87,6 +88,7 @@ import UserRoutes from './routes/user/user.route';
 //===================
 app.use('/api/v1/security', 		SecurityRoutes);
 app.use('/api/v1/user', 			UserRoutes);
+app.use('/api/v1/lookup', 			LookupRoutes); //10/05/2023
 
 app.use('/user', 					UserRoutes);
 

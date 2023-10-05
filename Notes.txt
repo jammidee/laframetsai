@@ -107,6 +107,9 @@ EXTENSIONS
 2. Tabstop Whitespace Converter - Johnny Wong
 3. Prettier - Code Fomratter - Prettier
 4. MySQL - MySQL Management Tool - Jun Han
+5. Material Icon Theme - Philipp Kief
+6. dotEnv - MikeStead
+7. 
 
 LIBRARIES
 

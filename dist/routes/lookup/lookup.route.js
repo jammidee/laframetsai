@@ -17,23 +17,24 @@
  *
  * Framework Designed by: Jammi Dee (jammi_dee@yahoo.com)
  *
- * File Create Date: 09/11/2023
+ * File Create Date: 10/05/2023 06:35pm
  * Created by: Jammi Dee
  * Modified by: Jammi Dee
- *
 */
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = require("express");
-const UserRoutes = (0, express_1.Router)();
-//=======
-// CRUDS
-//=======
-UserRoutes.use("/", () => { }); //JMD 09/28/2023
-// Define your user-related routes here
-UserRoutes.get('/', (req, res) => {
-    res.render('user/user', { username: 'John' });
-    //const filePath = path.join(__dirname, '../..', 'views', 'user', 'user.html');
-    //res.sendFile(filePath);
-});
-exports.default = UserRoutes;
-//# sourceMappingURL=user.route.js.map
+const jwt_generate_1 = require("../../app/helpers/jwt-generate");
+const controller_1 = require("./controller");
+const LookupRoutes = (0, express_1.Router)();
+//========================
+// CRUDS - /api/v1/lookup
+//========================
+//LookupRoutes.use("/", (req, res) => {
+//    res.json({ message: "Lookup Route API" });
+//});
+LookupRoutes.post("/", jwt_generate_1.authenticateToken, controller_1.modCreate);
+LookupRoutes.get("/", jwt_generate_1.authenticateToken, controller_1.modRead);
+LookupRoutes.put("/", jwt_generate_1.authenticateToken, controller_1.modUpdate);
+LookupRoutes.delete("/", jwt_generate_1.authenticateToken, controller_1.modDelete);
+exports.default = LookupRoutes;
+//# sourceMappingURL=lookup.route.js.map

@@ -1,5 +1,5 @@
 import { Model, DataTypes } from 'sequelize';
-import { sequelize } from '../connection/sequelize'; // Import your Sequelize instance
+import { sequelize } from '../../../connection/sequelize'; // Import your Sequelize instance
 
 class Lookup extends Model {
   public id!: number;

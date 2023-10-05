@@ -90,11 +90,13 @@ const initjsonvars_1 = __importDefault(require("./app/helpers/initjsonvars"));
 //===================
 const security_route_1 = __importDefault(require("./routes/security/security.route"));
 const user_route_1 = __importDefault(require("./routes/user/user.route"));
+const lookup_route_1 = __importDefault(require("./routes/lookup/lookup.route"));
 //===================
 // Route Usage Point
 //===================
 app.use('/api/v1/security', security_route_1.default);
 app.use('/api/v1/user', user_route_1.default);
+app.use('/api/v1/lookup', lookup_route_1.default); //10/05/2023
 app.use('/user', user_route_1.default);
 app.use((req, res) => {
     res.status(404).json({ status: 404, message: "Invalid route!" });

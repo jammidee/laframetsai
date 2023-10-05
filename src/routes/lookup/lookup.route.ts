@@ -16,28 +16,29 @@
  * 
  * Framework Designed by: Jammi Dee (jammi_dee@yahoo.com)
  *
- * File Create Date: 09/11/2023
+ * File Create Date: 10/05/2023 06:35pm
  * Created by: Jammi Dee
  * Modified by: Jammi Dee
- *
 */
 
 import { Router, Request, Response } from 'express';
 import path from 'path';
+import { authenticateToken } from '../../app/helpers/jwt-generate';
+import { modCreate, modRead, modUpdate, modDelete } from './controller';
 
-const UserRoutes = Router();
+const LookupRoutes = Router();
 
-//=======
-// CRUDS
-//=======
-UserRoutes.use("/", () => {});                            //JMD 09/28/2023
+//========================
+// CRUDS - /api/v1/lookup
+//========================
+//LookupRoutes.use("/", (req, res) => {
+//    res.json({ message: "Lookup Route API" });
+//});
 
-// Define your user-related routes here
-UserRoutes.get('/', (req: Request, res: Response) => {
-	
-	res.render('user/user', { username: 'John' });
-	//const filePath = path.join(__dirname, '../..', 'views', 'user', 'user.html');
-	//res.sendFile(filePath);
+LookupRoutes.post("/", authenticateToken, modCreate  );
+LookupRoutes.get("/", authenticateToken, modRead  );
+LookupRoutes.put("/", authenticateToken, modUpdate  );
+LookupRoutes.delete("/", authenticateToken, modDelete  );
 
-});
-export default UserRoutes;
+
+export default LookupRoutes;

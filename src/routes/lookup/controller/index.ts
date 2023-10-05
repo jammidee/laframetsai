@@ -12,32 +12,38 @@
  * PARTICULAR PURPOSE.  See the GNU General Public License for more details.
  * 
  * You should have received a copy of the GNU General Public License
- * along with Cloud Gate System.  If not, see <http://www.gnu.org/licenses/>.
+ * along with Lalulla System.  If not, see <http://www.gnu.org/licenses/>.
  * 
  * Framework Designed by: Jammi Dee (jammi_dee@yahoo.com)
  *
- * File Create Date: 09/11/2023
+ * File Create Date: 10/05/2023 06:55pm
  * Created by: Jammi Dee
  * Modified by: Jammi Dee
  *
 */
 
-import { Router, Request, Response } from 'express';
-import path from 'path';
+import { RequestHandler } from "express";
 
-const UserRoutes = Router();
+export const modCreate: RequestHandler = async (req, res) => {
 
-//=======
-// CRUDS
-//=======
-UserRoutes.use("/", () => {});                            //JMD 09/28/2023
+    return res.status(200).json({ status: 200 , message: "Create!!!" });
 
-// Define your user-related routes here
-UserRoutes.get('/', (req: Request, res: Response) => {
-	
-	res.render('user/user', { username: 'John' });
-	//const filePath = path.join(__dirname, '../..', 'views', 'user', 'user.html');
-	//res.sendFile(filePath);
+};
 
-});
-export default UserRoutes;
+export const modRead: RequestHandler = async (req, res) => {
+
+    return res.status(200).json({ status: 200 , message: "Read!!!" });
+
+};
+
+export const modUpdate: RequestHandler = async (req, res) => {
+
+    return res.status(200).json({ status: 200 , message: "Update!!!" });
+
+};
+
+export const modDelete: RequestHandler = async (req, res) => {
+
+    return res.status(200).json({ status: 200 , message: "Delete!!!" });
+
+};

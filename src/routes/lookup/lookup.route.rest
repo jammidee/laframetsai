@@ -1,0 +1,51 @@
+
+###
+
+@hostname = localhost
+@port = 3000
+@host = {{hostname}}:{{port}}
+@baseUrl = http://{{host}}
+@basePath = /api/v1/lookup
+
+
+# @name lookup
+GET {{baseUrl}}/api/v1/lookup HTTP/1.1
+Content-Type: application/x-www-form-urlencoded
+
+###
+
+# @name getaccesstoken
+GET {{baseUrl}}/api/v1/security/getaccesstoken HTTP/1.1
+Authorization: Basic {{$dotenv BASIC_USERNAME}}:{{$dotenv BASIC_PASSWORD}}
+Content-Type: application/json
+
+###
+
+@token = {{getaccesstoken.response.body.$.access_token}}
+
+# @name create
+POST {{baseUrl}}/api/v1/lookup HTTP/1.1
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+###
+
+# @name read
+GET {{baseUrl}}/api/v1/lookup HTTP/1.1
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+###
+
+# @name update
+PUT {{baseUrl}}/api/v1/lookup HTTP/1.1
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+###
+
+# @name delete
+DELETE {{baseUrl}}/api/v1/lookup HTTP/1.1
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
