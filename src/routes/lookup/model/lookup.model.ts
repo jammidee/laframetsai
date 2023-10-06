@@ -1,35 +1,70 @@
-import { Model, DataTypes } from 'sequelize';
-import { sequelize } from '../../../connection/sequelize'; // Import your Sequelize instance
+/**
+ * Copyright (C) 2023 Lalulla, Inc. All rights reserved.
+ * Copyright (c) 2023 - Joel M. Damaso - mailto:jammi_dee@yahoo.com Manila/Philippines
+ * This file is part of Lalulla System.
+ * 
+ * LaKuboTs Framework is distributed under the terms of the GNU General Public License 
+ * as published by the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ * 
+ * LaKuboTs System is distributed in the hope that it will be useful, but WITHOUT ANY
+ * WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A 
+ * PARTICULAR PURPOSE.  See the GNU General Public License for more details.
+ * 
+ * You should have received a copy of the GNU General Public License
+ * along with Cloud Gate System.  If not, see <http://www.gnu.org/licenses/>.
+ * 
+ * Framework Designed by: Jammi Dee (jammi_dee@yahoo.com)
+ *
+ * File Create Date: 10/05/2023 06:38pm
+ * Created by: Jammi Dee
+ * Modified by: Jammi Dee
+*/
 
-class Lookup extends Model {
-  public id!: number;
-  public username!: string;
-  public email!: string;
-  public readonly createdAt!: Date;
-  public readonly updatedAt!: Date;
+import { Table, Model, Column, DataType, DefaultScope, ForeignKey, BelongsTo } from "sequelize-typescript";
+
+
+@Table({
+  timestamps: true,
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt',
+  tableName: "tbllookups"
+})
+
+export class Lookup extends Model {
+  @Column({
+    allowNull: false,
+    autoIncrement: true,
+    primaryKey: true,
+    type: DataType.INTEGER
+  })
+  ID!: number;
+
+  @Column({
+    type: DataType.STRING
+  })
+  keyid!: String;
+
+  @Column({
+    type: DataType.STRING
+  })
+  colid!: String;
+
+  @Column({
+    type: DataType.STRING
+  })
+  description!: string;
+
+  @Column({
+    allowNull: false,
+    type: DataType.DATE
+  })
+  createdAt!: Date;
+
+  @Column({
+    allowNull: false,
+    type: DataType.DATE
+  })
+  updatedAt!: Date;
+
 }
-
-Lookup.init(
-  {
-    id: {
-      type: DataTypes.INTEGER,
-      autoIncrement: true,
-      primaryKey: true,
-    },
-    lid: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    description: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-  },
-  {
-    sequelize, // Pass your Sequelize instance
-    modelName: 'Lookup', // Name of the model (optional)
-    tableName: 'tbllookup', // Name of the database table (optional)
-  }
-);
-
-export default Lookup;

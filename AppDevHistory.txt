@@ -10,6 +10,13 @@ Framework Design: 			Jammi Dee
 Developed / Programmed by : Joel Margate Damaso aka Jammi Dee
 Tested / QA by:				Jammi Dee
 
+10/06/2023  - added lookup migration and seeder script in Sequelize
+            - added MySQL notes
+            - 
+
+10/05/2023  - added lookup module in the application
+            - created testing script
+            
 09/30/2023  - completed JWT authentication using sequelize and database;
             - modified tsconfig to resolve the issue on sequelize.
             - added entry in the test script.

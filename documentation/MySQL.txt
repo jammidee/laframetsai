@@ -1,0 +1,34 @@
+Created by: Jammi Dee
+Date: 10/06/2023
+
+1. Creating database in MySQL 8.0 or higher
+
+1. Development
+
+    CREATE DATABASE db_dev CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+    CREATE USER dev_user@localhost IDENTIFIED BY 'dev_secret';
+    GRANT ALL PRIVILEGES ON db_dev.* TO 'dev_user'@'dev_secret';
+    FLUSH PRIVILEGES;
+    use db_dev;
+    SELECT user, host, authentication_string, plugin FROM mysql.user WHERE user = 'dev_user';
+    ALTER USER 'dev_user'@'localhost' IDENTIFIED WITH 'mysql_native_password' BY 'dev_secret';
+
+2. test
+
+    CREATE DATABASE db_test CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+    CREATE USER dev_test@localhost IDENTIFIED BY 'dev_secret';
+    GRANT ALL PRIVILEGES ON db_test.* TO 'dev_test'@'dev_secret';
+    FLUSH PRIVILEGES;
+    use db_test;
+    SELECT user, host, authentication_string, plugin FROM mysql.user WHERE user = 'dev_test';
+    ALTER USER 'dev_test'@'localhost' IDENTIFIED WITH 'mysql_native_password' BY 'dev_secret';
+
+3. Production
+
+    CREATE DATABASE db_prod CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+    CREATE USER dev_prod@localhost IDENTIFIED BY 'dev_secret';
+    GRANT ALL PRIVILEGES ON db_prod.* TO 'dev_prod'@'dev_secret';
+    FLUSH PRIVILEGES;
+    use db_prod;
+    SELECT user, host, authentication_string, plugin FROM mysql.user WHERE user = 'dev_prod';
+    ALTER USER 'dev_prod'@'localhost' IDENTIFIED WITH 'mysql_native_password' BY 'dev_secret';

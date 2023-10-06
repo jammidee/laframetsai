@@ -1,0 +1,143 @@
+Created By: Joel M. Damaso
+Date: 10/06/2023
+
+** Prior to running the script below, make sure you config/config.json file of Sequelize
+** Make sure you have created also the database based on the configuration.
+
+Creating Miration for Sequelize
+
+1. Create a migration script.
+
+    npx sequelize-cli migration:generate --name Lookup-Create
+
+   * Edit the generated script in the migrations folder. It should look like this or similar to the script below:
+
+        'use strict';
+
+        /** @type {import('sequelize-cli').Migration} */
+        module.exports = {
+        async up (queryInterface, Sequelize) {
+
+            await queryInterface.createTable('tbllookups', {
+            id: {
+                allowNull: false,
+                autoIncrement: true,
+                primaryKey: true,
+                type: Sequelize.INTEGER
+            },
+            keyid: {
+                type: Sequelize.STRING
+            },
+            colid: {
+                type: Sequelize.STRING
+            },
+            description: {
+                type: Sequelize.STRING
+            },
+            createdAt: {
+                allowNull: false,
+                type: Sequelize.DATE
+            },
+            updatedAt: {
+                allowNull: false,
+                type: Sequelize.DATE
+            }
+            });  
+
+        },
+
+        async down (queryInterface, Sequelize) {
+            
+            await queryInterface.dropTable('tbllookups');
+
+        }
+        };
+
+2. Create a seeder script.
+
+    npx sequelize-cli seed:generate --name Lookup-Seed
+
+    * Edit the generated script to look like this.
+
+        'use strict';
+
+        /** @type {import('sequelize-cli').Migration} */
+        module.exports = {
+        async up (queryInterface, Sequelize) {
+
+            // Step 1: Delete or truncate data (remove existing rows)
+            await queryInterface.bulkDelete('tbldepartments', null, {});
+
+            // Step 2: Reset auto-increment counter for the ID column
+            await queryInterface.sequelize.query('ALTER TABLE tbldepartments AUTO_INCREMENT = 1');
+
+            // Step 3: Insert new data (seed data)
+            await queryInterface.bulkInsert('tbldepartments', [
+            {
+                keyid: 'DEPARTMENT',
+                colid: 'IT',
+                description: 'IT Department',
+                createdAt: new Date(),
+                updatedAt: new Date(),
+            },
+            {
+                keyid: 'DEPARTMENT',
+                colid: 'SALES',
+                description: 'Sales Department',
+                createdAt: new Date(),
+                updatedAt: new Date(),
+            },
+            {
+                keyid: 'DEPARTMENT',
+                colid: 'PURCHASING',
+                description: 'Purchasing Department',
+                createdAt: new Date(),
+                updatedAt: new Date(),
+            },
+            {
+                keyid: 'DEPARTMENT',
+                colid: 'HR',
+                description: 'HR Department',
+                createdAt: new Date(),
+                updatedAt: new Date(),
+            },
+
+            ]);
+            
+
+        },
+
+        async down (queryInterface, Sequelize) {
+            
+            await queryInterface.bulkDelete('tbldepartments', null, {});
+
+        }
+        };
+
+3. During Development and you not yet keeping some data, you can run the following:
+
+    * Recreate the entire database, avoid if there are data needs to be kept.
+    * To specify environment, add an --env at the command end. If non-specified,
+    *    sequelize-cli assumes the --env development environment.
+    *    npx sequelize-cli db:migrate --env development
+
+    npx sequelize-cli db:migrate:undo:all
+    npx sequelize-cli db:migrate
+
+    * Recreate default values.
+    npx sequelize-cli db:seed:all
+
+    * If you have error, correct the data and do this:
+    npx sequelize-cli db:seed:undo:all
+    npx sequelize-cli db:seed:all
+
+4. In the /connection/connectiondb, add an entry for this class.
+
+    import { Lookup } from "../routes/lookup/model/lookup.model";
+    ...
+    ...
+        models: [
+        User, Department, Lookup
+    ]
+    ...
+    ...
