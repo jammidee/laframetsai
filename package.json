@@ -9,6 +9,7 @@
     "custom": "node build.js",
     "lakubots": "node dist/app.js",
     "test": "nyc mocha --require ts-node/register 'src/**/*.test.ts'",
+    "test2": "mocha --require ts-node/register 'src/**/*.test.ts'",
     "migrate": "npx sequelize-cli db:migrate",
     "migrate:undo": "npx sequelize-cli db:migrate:undo:all",
     "seed:all": "npx sequelize-cli db:seed:all"

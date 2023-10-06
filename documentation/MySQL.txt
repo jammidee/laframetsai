@@ -1,7 +1,8 @@
 Created by: Jammi Dee
 Date: 10/06/2023
 
-1. Creating database in MySQL 8.0 or higher
+** Creating database in MySQL 8.0 or higher
+   * This is required to setup the environment for sequelize to work.
 
 1. Development
 

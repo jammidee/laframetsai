@@ -26,7 +26,7 @@ import { RequestHandler } from "express";
 
 export const validateToken: RequestHandler = async (req, res) => {
 
-    console.log(req["user"]);
+    //console.log(req["user"]);
 
     return res.status(200).json({ status: 200 , message: "Valid token!!!" });
 

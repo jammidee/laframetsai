@@ -1,22 +1,59 @@
-import { describe, it } from 'mocha';
-import * as chai from 'chai';
+import app from '../app'; // Replace with your actual app import
+
+import 'mocha';
+import chai from 'chai';
 import chaiHttp from 'chai-http';
 
 // Configure Chai to use chai-http
 chai.use(chaiHttp);
 
 const expect = chai.expect;
+let accessToken: string;
 
 // Import your Express app or API server module
-//import app from '../routes/user/user.route'; // Replace with your actual app import
-import app from '../app'; // Replace with your actual app import
+describe('API Tests: Access Token, Validate Token', () => {
+  it('Get Token from .env Credentials: should return a 200 status code for GET /api/v1/security/getaccesstoken', async () => {
+    const base64Credentials = Buffer.from(`${process.env.BASIC_USERNAME}:${process.env.BASIC_PASSWORD}`).toString('base64');
+    const res = await chai.request(app)
+      .get('/api/v1/security/getaccesstoken')
+      .set('Content-Type', `application/json`)
+      .set('Authorization', `Basic ${base64Credentials}` );
+    accessToken = res.body.access_token;
+    //console.log( accessToken );
+    console.log( res.body );
+    expect(res).to.have.status(200);
+  });
 
-describe('API Tests', () => {
-  it('should return a 200 status code for GET /api/endpoint', async () => {
-    const res = await chai.request(app).get('/user'); // Replace with your endpoint
-    console.log(res);
+  it('Testing Basic Token: should return a 200 status code for GET /api/v1/security/validatetoken', async () => {
+    const res = await chai.request(app)
+      .get('/api/v1/security/validatetoken')
+      .set('Content-Type', `application/json`)
+      .set('Authorization', `Bearer ${accessToken}` );
+    console.log( res.body );
+    expect(res).to.have.status(200);
+  });
+
+  it('Get User Token: should return a 200 status code for GET /api/v1/security/getusertoken', async () => {
+    const user64Credentials = Buffer.from(`jammi_dee@yahoo.com:sadmin12345!`).toString('base64');
+    const res = await chai.request(app)
+      .get('/api/v1/security/getusertoken')
+      .set('Content-Type', `application/json`)
+      .set('Authorization', `Basic ${user64Credentials}` );
+    accessToken = res.body.access_token;
+    //console.log( accessToken );
+    console.log( res.body );
+    expect(res).to.have.status(200);
+  });
+
+  it('Testing User Token: should return a 200 status code for GET /api/v1/security/validatetoken', async () => {
+    const res = await chai.request(app)
+      .get('/api/v1/security/validatetoken')
+      .set('Content-Type', `application/json`)
+      .set('Authorization', `Bearer ${accessToken}` );
+    console.log( res.body );
     expect(res).to.have.status(200);
   });
 
   // Add more API test cases here...
+
 });
