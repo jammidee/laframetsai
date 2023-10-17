@@ -213,6 +213,12 @@ git log
 git log --all --graph
 
 * Creating a new branch
-
 git branch feature01
 git checkout feature01
+git add .
+git commit -m "Feature 01 initial commit"
+git push -u origin feature01
+
+* Create a pull request
+1. Login to github then click the 'Pull Request' menu.
+2. Click the Create A Pull Request. Then Confirm Merge.
