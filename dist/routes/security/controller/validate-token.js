@@ -25,7 +25,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.validateToken = void 0;
 const validateToken = async (req, res) => {
-    console.log(req["user"]);
+    //console.log(req["user"]);
     return res.status(200).json({ status: 200, message: "Valid token!!!" });
 };
 exports.validateToken = validateToken;

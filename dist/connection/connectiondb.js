@@ -50,6 +50,7 @@ exports.connection = void 0;
 const sequelize_typescript_1 = require("sequelize-typescript");
 const user_model_1 = require("../models/user.model");
 const department_model_1 = require("../models/department.model");
+const lookup_model_1 = require("../routes/lookup/model/lookup.model");
 const dotenv = __importStar(require("dotenv"));
 dotenv.config();
 exports.connection = new sequelize_typescript_1.Sequelize({
@@ -61,7 +62,7 @@ exports.connection = new sequelize_typescript_1.Sequelize({
     database: process.env.DB_NAME,
     logging: false,
     models: [
-        user_model_1.User, department_model_1.Department
+        user_model_1.User, department_model_1.Department, lookup_model_1.Lookup
     ]
 });
 async function connectionDB() {

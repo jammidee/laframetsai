@@ -10,8 +10,12 @@ Framework Design: 			Jammi Dee
 Developed / Programmed by : Joel Margate Damaso aka Jammi Dee
 Tested / QA by:				Jammi Dee
 
+10/08/2023  - added http proxy library, cheerio
+
 10/06/2023  - added lookup migration and seeder script in Sequelize
             - added MySQL notes
+            - successfully created a test script using mocha and chai
+            - created a test script for JWT gettoken, validatetoken, getusertoken, validate user token
             - 
 
 10/05/2023  - added lookup module in the application

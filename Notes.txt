@@ -33,6 +33,7 @@ Creation:
 
 4. Create a folder src
 5. Create a file app.ts inside src
+   *Inside src folder create also 'views' folder
 
 import express from 'express';
 
@@ -50,14 +51,16 @@ app.listen(3000, () => {
 
   "scripts": {
     "build": "tsc",
+    "custom": "node build.js",
+    "lakubots": "node dist/app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
 
-7. npm run build
-8. node dist/app.js
-
-9. Install TypeScript Globally:
+7. Install TypeScript Globally:
   npm install -g typescript
+
+8. npm run build
+9. node dist/app.js
   
 10. Inside the app root folder run tsc --watch
 
@@ -126,6 +129,12 @@ app.listen(3000, () => {
 
 13. node build.js
 14. node dist/app.js
+15. Create the file .gitignore. Place the following:
+
+	# Ignore node_modules
+	node_modules/
+	.env
+	logs/
 
 EXTENSIONS
 
@@ -135,7 +144,7 @@ EXTENSIONS
 4. MySQL - MySQL Management Tool - Jun Han
 5. Material Icon Theme - Philipp Kief
 6. dotEnv - MikeStead
-7. 
+7. Markdown Preview Github Styling - Matt Bierner
 
 LIBRARIES
 
@@ -166,6 +175,12 @@ npm install axios @types/axios --save
 
 **JSON Web Token
 npm install jsonwebtoken @types/jsonwebtoken --save
+
+**Http Proxy 10/08/2023
+npm install http-proxy-middleware @types/http-proxy-middleware --save
+
+**Cheerio 10/08/2023
+npm install cheerio @types/cheerio --save
 
 AUDIT
 **Run Audit for vulnerabilty

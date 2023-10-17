@@ -50,6 +50,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importStar(require("express"));
+const http_proxy_middleware_1 = require("http-proxy-middleware");
+const cheerio_1 = __importDefault(require("cheerio"));
 const cors_1 = __importDefault(require("cors"));
 const path_1 = __importDefault(require("path"));
 //import logger from './app/logging/logger';
@@ -91,6 +93,55 @@ const initjsonvars_1 = __importDefault(require("./app/helpers/initjsonvars"));
 const security_route_1 = __importDefault(require("./routes/security/security.route"));
 const user_route_1 = __importDefault(require("./routes/user/user.route"));
 const lookup_route_1 = __importDefault(require("./routes/lookup/lookup.route"));
+// Define your proxy route
+const targetUrl = 'http://lalulla.com'; // Replace with the target website URL
+// Use the proxy middleware for all requests
+app.use((0, http_proxy_middleware_1.createProxyMiddleware)({
+    target: targetUrl,
+    changeOrigin: true,
+    onProxyRes: (proxyRes, req, res) => {
+        if (proxyRes.headers['content-type'] && proxyRes.headers['content-type'].includes('text/html')) {
+            // Intercept HTML responses and modify links
+            const chunks = [];
+            proxyRes.on('data', (chunk) => {
+                chunks.push(chunk);
+            });
+            proxyRes.on('end', () => {
+                const body = Buffer.concat(chunks).toString('utf-8');
+                const modifiedBody = modifyLinks(body, targetUrl, req.originalUrl);
+                // Set the modified content
+                if (!res.headersSent) {
+                    res.send(modifiedBody);
+                }
+            });
+        }
+        else {
+            // For non-HTML responses, forward the response as-is
+            if (!res.headersSent) {
+                proxyRes.pipe(res, { end: true });
+            }
+        }
+    },
+}));
+function modifyLinks(html, targetUrl, originalUrl) {
+    const $ = cheerio_1.default.load(html);
+    // Modify all links in the document
+    $('a').each((index, element) => {
+        const href = $(element).attr('href');
+        if (href) {
+            // Check if the href points to the target destination
+            if (href.startsWith(targetUrl) || href.startsWith('/')) {
+                // Construct an absolute URL for the proxy
+                const proxyUrl = new URL('/proxy', targetUrl);
+                // Replace the href with the proxy URL
+                proxyUrl.searchParams.set('url', href);
+                proxyUrl.searchParams.set('originalUrl', originalUrl);
+                $(element).attr('href', proxyUrl.toString());
+            }
+        }
+    });
+    return $.html();
+}
 //===================
 // Route Usage Point
 //===================
