@@ -211,3 +211,8 @@ git rm -r --cached logs
 git status
 git log
 git log --all --graph
+
+* Creating a new branch
+
+git branch feature01
+git checkout feature01
