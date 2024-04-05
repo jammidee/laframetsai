@@ -32,8 +32,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.Department = void 0;
 const sequelize_typescript_1 = require("sequelize-typescript");
 //import { Product } from "./product.model";
-let Department = exports.Department = class Department extends sequelize_typescript_1.Model {
+let Department = class Department extends sequelize_typescript_1.Model {
 };
+exports.Department = Department;
 __decorate([
     (0, sequelize_typescript_1.Column)({
         allowNull: false,

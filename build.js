@@ -43,7 +43,7 @@ const copyFiles = async () => {
 };
 
 // Compile TypeScript files using tsc
-exec('tsc', (error, stdout, stderr) => {
+exec('npm run build', (error, stdout, stderr) => {
     if (error) {
         console.error('Error during TypeScript compilation:', error);
         return;

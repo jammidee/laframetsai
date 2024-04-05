@@ -30,8 +30,9 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Lookup = void 0;
 const sequelize_typescript_1 = require("sequelize-typescript");
-let Lookup = exports.Lookup = class Lookup extends sequelize_typescript_1.Model {
+let Lookup = class Lookup extends sequelize_typescript_1.Model {
 };
+exports.Lookup = Lookup;
 __decorate([
     (0, sequelize_typescript_1.Column)({
         allowNull: false,
