@@ -30,14 +30,22 @@ const UserRoutes = Router();
 //=======
 // CRUDS
 //=======
-UserRoutes.use("/", () => {});                            //JMD 09/28/2023
+UserRoutes.use("/", (req: Request, res: Response, next) => {
+	
+    // You can perform common tasks for all HTTP methods here
+    console.log('Request received for /user');
+
+    // Pass control to the next middleware or route handler
+    next();
+});
 
 // Define your user-related routes here
 UserRoutes.get('/', (req: Request, res: Response) => {
 	
-	res.render('user/user', { username: 'John' });
+	res.render('user', { username: 'John' });
 	//const filePath = path.join(__dirname, '../..', 'views', 'user', 'user.html');
 	//res.sendFile(filePath);
 
 });
+
 export default UserRoutes;
