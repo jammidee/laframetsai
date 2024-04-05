@@ -222,3 +222,11 @@ git push -u origin feature01
 * Create a pull request
 1. Login to github then click the 'Pull Request' menu.
 2. Click the Create A Pull Request. Then Confirm Merge.
+
+
+CLONING:
+
+git clone https://github.com/jammidee/laframetron.git lakuborag
+git remote -v
+git remote set-url origin https://github.com/jammidee/laframetsai.git
+git pull origin main
