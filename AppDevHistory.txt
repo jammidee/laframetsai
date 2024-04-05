@@ -10,6 +10,10 @@ Framework Design: 			Jammi Dee
 Developed / Programmed by : Joel Margate Damaso aka Jammi Dee
 Tested / QA by:				Jammi Dee
 
+04/05/2024  - forked lakubots to lakubotsai
+            - Addded batch files.
+            - Updates labels and notes
+            - 
 10/08/2023  - added http proxy library, cheerio
 
 10/06/2023  - added lookup migration and seeder script in Sequelize
