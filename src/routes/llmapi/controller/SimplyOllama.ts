@@ -40,18 +40,16 @@ class SimplyOllama {
 
     }
 
-    async ping(): Promise<any> {
-
-        const url = `${this.baseURL}`;
+    async ping(): Promise<string> {
+        const url = this.baseURL;
 
         try {
             const response = await axios.get(url);
-            return response.data;
+            return response.data as string;
         } catch (error) {
             console.error('Error fetching response:', error);
-            throw error;
+            return ''; // Return empty string on failure
         }
-
     }
 
     async tags(request: AxiosRequestConfig): Promise<any> {

@@ -30,8 +30,28 @@ import ollama from './SimplyOllama';
 
 export const ollamaCheck: RequestHandler = async (req, res) => {
 
-    ollama.setBaseURL('http://127.0.0.1');
+    const baseurl = req.query.baseurl as string;
 
-    return res.status(200).json({ message: "Ollama Check!!" });
+    if (baseurl !== '' && baseurl !== undefined) {
+        const parsedUrl = new URL(baseurl);
+        if (parsedUrl.hostname !== 'localhost') {
+            ollama.setBaseURL(baseurl);
+        }
+    }
 
+    try {
+
+        const response = await ollama.ping();
+        if (response !== '') {
+            return res.status(200).json({ message: "Ollama is up and running!" });
+        } else {
+            return res.status(500).json({ message: "Failed to connect to Ollama." }); 
+        }
+
+    } catch (error) {
+
+        console.error('Error:', error);
+        return res.status(500).json({ message: "Failed to connect to Ollama." });
+
+    }
 };
