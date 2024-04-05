@@ -16,16 +16,22 @@
  * 
  * Framework Designed by: Jammi Dee (jammi_dee@yahoo.com)
  *
- * File Create Date: 04/05/2024 10:59pm
+ * File Create Date: 04/05/2024 11:09pm
  * Created by: Jammi Dee
  * Modified by: Jammi Dee
  *
 */
 
-import { RequestHandler } from "express";
+require('dotenv').config();
+import axios                from 'axios';
+import { RequestHandler }   from "express";
 
-export const dbquery: RequestHandler = async (req, res) => {
+import ollama from './SimplyOllama';
 
-    return res.status(401).json({ message: "Database Query!!" });
+export const ollamaCheck: RequestHandler = async (req, res) => {
+
+    ollama.setBaseURL('http://127.0.0.1');
+
+    return res.status(200).json({ message: "Ollama Check!!" });
 
 };

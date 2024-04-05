@@ -81,7 +81,8 @@ import initJSONVars from './app/helpers/initjsonvars';
 // Routes Entry Point
 //===================
 import SecurityRoutes 			from './routes/security/security.route';
-import DbAPIRoutes 				from './routes/dbapi/dbapi.route';
+import DbAPIRoutes 				from './routes/dbapi/dbapi.route';			// JMD 04/05/2024
+import LLMAPIRoutes 			from './routes/llmapi/llmapi.route';		// JMD 04/05/2024
 import UserRoutes 				from './routes/user/user.route';
 import LookupRoutes 			from './routes/lookup/lookup.route';
 
@@ -154,7 +155,10 @@ app.get('/', (req, res) => {
 // Route Usage Point
 //===================
 app.use('/api/v1/security', 		SecurityRoutes);
+
 app.use('/api/v1/dbapi', 			DbAPIRoutes);		//04/05/2024
+app.use('/api/v1/llmapi', 			LLMAPIRoutes);		//04/05/2024
+
 app.use('/api/v1/user', 			UserRoutes);
 app.use('/api/v1/lookup', 			LookupRoutes); 		//10/05/2023
 

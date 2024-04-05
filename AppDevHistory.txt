@@ -27,6 +27,11 @@ TODO:
             - Started migrating cgutility.
             - Added DbAPI module in the system
             - Added LLMAPI module in the system
+            - Added LLMAPI in the route
+            - Added function ollama check in the llmapi
+            - Added axios library 
+            - Added custom library Ollama.ts 
+            - Added ping command to Ollama.ts
             - 
 
 10/08/2023  - added http proxy library, cheerio

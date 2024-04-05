@@ -25,14 +25,15 @@
 import { Router } from "express";
 import { authenticateToken } from '../../app/helpers/jwt-generate';
 
-import { dbquery } from "./controller/query-database";
+import { ollamaCheck } from "./controller/ollama-check";
 
-const DbAPIRoutes = Router();
+const LlmApiRoutes = Router();
 
-DbAPIRoutes.get("/", (req, res) => {
-  res.json({ message: "Db Route API" });
+LlmApiRoutes.get("/", (req, res) => {
+  res.json({ message: "LLM Route API" });
 });
 
-DbAPIRoutes.use("/dbquery", authenticateToken, dbquery );              //JMD 04/05/2024
+// Check if ollama is installed in the server 04/05/2024
+LlmApiRoutes.get("/ollamacheck", authenticateToken, ollamaCheck );              //JMD 04/05/2024
 
-export default DbAPIRoutes;
+export default LlmApiRoutes;
