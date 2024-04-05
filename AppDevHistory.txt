@@ -24,6 +24,7 @@ TODO:
             - started migrting the cglibmysql to typescript
             - Installed uuid @types/uuid
             - @types/nconf
+            - Started migrating cgutility.
             - 
 
 10/08/2023  - added http proxy library, cheerio
