@@ -64,6 +64,12 @@ export class User extends Model {
     allowNull: false,
     type: DataType.DATE
   })
+  lastupdate!: Date;
+
+  @Column({
+    allowNull: false,
+    type: DataType.DATE
+  })
   createdAt!: Date;
 
   @Column({

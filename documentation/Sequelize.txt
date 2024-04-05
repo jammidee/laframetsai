@@ -168,6 +168,9 @@ CREATING Sequelize models
     npx sequelize-cli migration:generate --name Department-Create
     npx sequelize-cli db:migrate
 
+    npx sequelize-cli db:migrate:undo
+    npx sequelize-cli db:migrate:undo:all
+
 3. Create a Seed script
 
     npx sequelize-cli seed:generate --name Department-Seed

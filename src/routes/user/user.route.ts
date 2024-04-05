@@ -37,6 +37,7 @@ UserRoutes.use("/", (req: Request, res: Response, next) => {
 
     // Pass control to the next middleware or route handler
     next();
+    
 });
 
 // Define your user-related routes here
