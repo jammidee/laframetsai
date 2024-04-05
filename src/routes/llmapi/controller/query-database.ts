@@ -16,23 +16,16 @@
  * 
  * Framework Designed by: Jammi Dee (jammi_dee@yahoo.com)
  *
- * File Create Date: 04/05/2024 09:42pm
+ * File Create Date: 04/05/2024 10:59pm
  * Created by: Jammi Dee
  * Modified by: Jammi Dee
  *
 */
 
-import { Router } from "express";
-import { authenticateToken } from '../../app/helpers/jwt-generate';
+import { RequestHandler } from "express";
 
-import { dbquery } from "./controller/query-database";
+export const dbquery: RequestHandler = async (req, res) => {
 
-const DbAPIRoutes = Router();
+    return res.status(401).json({ message: "Database Query!!" });
 
-DbAPIRoutes.get("/", (req, res) => {
-  res.json({ message: "Db Route API" });
-});
-
-DbAPIRoutes.use("/dbquery", authenticateToken, dbquery );              //JMD 04/05/2024
-
-export default DbAPIRoutes;
+};
