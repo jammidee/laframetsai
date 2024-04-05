@@ -20,6 +20,10 @@ TODO:
             - Updates labels and notes
             - Added site module / subfolder
             - Fixed the tblusers column and undo all migrations
+            - Started migrating the cglibhelper to typescript
+            - started migrting the cglibmysql to typescript
+            - Installed uuid @types/uuid
+            - @types/nconf
             - 
 
 10/08/2023  - added http proxy library, cheerio

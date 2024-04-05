@@ -184,6 +184,15 @@ npm install http-proxy-middleware @types/http-proxy-middleware --save
 **Cheerio 10/08/2023
 npm install cheerio @types/cheerio --save
 
+LALULLA REQUIRED LIBRARIES
+
+npm install uuid @types/uuid --save 04/05/2024
+npm install @types/nconf --save 04/05/2024
+npm install nconf --save 04/05/2024
+
+npm install --save mysql2 04/05/2024
+npm install --save-dev @types/node 04/05/2024
+
 AUDIT
 **Run Audit for vulnerabilty
 npm audit
