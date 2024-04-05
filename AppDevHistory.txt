@@ -32,6 +32,7 @@ TODO:
             - Added axios library 
             - Added custom library Ollama.ts 
             - Added ping command to Ollama.ts
+            - Added pingchroma to check for ChromaDB
             - 
 
 10/08/2023  - added http proxy library, cheerio

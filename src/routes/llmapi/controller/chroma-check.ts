@@ -16,26 +16,41 @@
  * 
  * Framework Designed by: Jammi Dee (jammi_dee@yahoo.com)
  *
- * File Create Date: 04/05/2024 10:59pm
+ * File Create Date: 04/06/2024 12:46pm
  * Created by: Jammi Dee
  * Modified by: Jammi Dee
  *
 */
 
-import { Router } from "express";
-import { authenticateToken } from '../../app/helpers/jwt-generate';
+require('dotenv').config();
+import { RequestHandler }   from "express";
 
-import { ollamaCheck } from "./controller/ollama-check";
-import { chromaCheck } from "./controller/chroma-check";
+import ollama from './SimplyOllama';
 
-const LlmApiRoutes = Router();
+export const chromaCheck: RequestHandler = async (req, res) => {
 
-LlmApiRoutes.get("/", (req, res) => {
-  res.json({ message: "LLM Route API" });
-});
+    const baseurl = req.query.baseurl as string;
 
-// Check if ollama is installed in the server 04/05/2024
-LlmApiRoutes.get("/ollamacheck", authenticateToken, ollamaCheck );              //JMD 04/05/2024
-LlmApiRoutes.get("/chromacheck", authenticateToken, chromaCheck );              //JMD 04/06/2024
+    if (baseurl !== '' && baseurl !== undefined) {
+        const parsedUrl = new URL(baseurl);
+        if (parsedUrl.hostname !== 'localhost') {
+            ollama.setBaseURL(baseurl);
+        }
+    }
 
-export default LlmApiRoutes;
+    try {
+
+        const response = await ollama.pingchroma();
+        if (response !== '') {
+            return res.status(200).json({ message: "ChromaDB is up and running!" });
+        } else {
+            return res.status(500).json({ message: "Failed to connect to ChromaDB." }); 
+        }
+
+    } catch (error) {
+
+        console.error('Error:', error);
+        return res.status(500).json({ message: "Failed to connect to ChromaDB." });
+
+    }
+};

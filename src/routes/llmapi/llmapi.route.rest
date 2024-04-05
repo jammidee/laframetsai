@@ -23,6 +23,12 @@ Content-Type: application/json
 
 @token = {{getaccesstoken.response.body.$.access_token}}
 
-# @name validatetoken
+# @name ollamacheck
 GET {{baseUrl}}/api/v1/llmapi/ollamacheck?baseurl=http://127.0.0.1:11434 HTTP/1.1
+Authorization: Bearer {{token}}
+
+###
+
+# @name ChromadbCheck
+GET {{baseUrl}}/api/v1/llmapi/chromacheck?baseurl=http://127.0.0.1:8000 HTTP/1.1
 Authorization: Bearer {{token}}

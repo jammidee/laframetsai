@@ -23,7 +23,6 @@
 */
 
 require('dotenv').config();
-import axios                from 'axios';
 import { RequestHandler }   from "express";
 
 import ollama from './SimplyOllama';

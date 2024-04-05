@@ -1,0 +1,24 @@
+[33mWARNING[0m:  [06-04-2024 00:38:31] chroma_server_nofile is not supported on Windows. chroma_server_nofile will not be set.
+[32mINFO[0m:     [06-04-2024 00:38:31] Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+[36mDEBUG[0m:    [06-04-2024 00:38:31] Starting component System
+[36mDEBUG[0m:    [06-04-2024 00:38:31] Starting component OpenTelemetryClient
+[36mDEBUG[0m:    [06-04-2024 00:38:31] Starting component SimpleAssignmentPolicy
+[36mDEBUG[0m:    [06-04-2024 00:38:31] Starting component SqliteDB
+[36mDEBUG[0m:    [06-04-2024 00:38:31] Starting component QuotaEnforcer
+[36mDEBUG[0m:    [06-04-2024 00:38:31] Starting component Posthog
+[36mDEBUG[0m:    [06-04-2024 00:38:31] Starting component LocalSegmentManager
+[36mDEBUG[0m:    [06-04-2024 00:38:31] Starting component SegmentAPI
+[32mINFO[0m:     [06-04-2024 00:38:32] Started server process [[36m18984[0m]
+[32mINFO[0m:     [06-04-2024 00:38:32] Waiting for application startup.
+[32mINFO[0m:     [06-04-2024 00:38:32] Application startup complete.
+[32mINFO[0m:     [06-04-2024 00:38:32] Uvicorn running on [1mhttp://localhost:8000[0m (Press CTRL+C to quit)
+[32mINFO[0m:     [06-04-2024 00:38:40] ::1:50149 - "GET / HTTP/1.1" 404
+[32mINFO[0m:     [06-04-2024 00:39:34] ::1:50148 - "GET /docs HTTP/1.1" 200
+[32mINFO[0m:     [06-04-2024 00:39:35] ::1:50148 - "GET /openapi.json HTTP/1.1" 200
+[32mINFO[0m:     [06-04-2024 00:40:15] ::1:50162 - "GET /api/v1 HTTP/1.1" 200
+[32mINFO[0m:     [06-04-2024 00:40:20] ::1:50162 - "GET /api/v1 HTTP/1.1" 200
+[32mINFO[0m:     [06-04-2024 00:40:31] ::1:50162 - "GET /docs HTTP/1.1" 200
+[32mINFO[0m:     [06-04-2024 00:40:32] ::1:50162 - "GET /openapi.json HTTP/1.1" 200
+[32mINFO[0m:     [06-04-2024 00:41:08] ::1:50173 - "GET /api/v1/heartbeat HTTP/1.1" 200
+[32mINFO[0m:     [06-04-2024 00:41:15] ::1:50173 - "GET /api/v1 HTTP/1.1" 200
+[32mINFO[0m:     [06-04-2024 00:51:52] 127.0.0.1:50291 - "GET /api/v1 HTTP/1.1" 200

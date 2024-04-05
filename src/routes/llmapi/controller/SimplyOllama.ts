@@ -52,6 +52,18 @@ class SimplyOllama {
         }
     }
 
+    async pingchroma(): Promise<string> {
+        const url = this.baseURL + '/api/v1';
+
+        try {
+            const response = await axios.get(url);
+            return response.data as string;
+        } catch (error) {
+            console.error('Error fetching response:', error);
+            return ''; // Return empty string on failure
+        }
+    }
+
     async tags(request: AxiosRequestConfig): Promise<any> {
 
         const url = `${this.baseURL}/${this.subURL}/tags`;
