@@ -1,4 +1,4 @@
-# laframets
+# laframetsai
 The Lalulla Framework is designed to simplify the development process of web and mobile applications by providing a comprehensive set of core functionalities. These functionalities include essential components such as logging, authentication, database management, and more. The primary objective of the framework is to streamline the creation of initial application setups, leaving developers with the task of implementing only the specific features unique to their application.
 
 Key Features and Benefits of the Lalulla Framework:
