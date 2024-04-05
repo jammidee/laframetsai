@@ -80,9 +80,10 @@ import initJSONVars from './app/helpers/initjsonvars';
 //===================
 // Routes Entry Point
 //===================
-import SecurityRoutes from './routes/security/security.route';
-import UserRoutes from './routes/user/user.route';
-import LookupRoutes from './routes/lookup/lookup.route';
+import SecurityRoutes 			from './routes/security/security.route';
+import DbAPIRoutes 				from './routes/dbapi/dbapi.route';
+import UserRoutes 				from './routes/user/user.route';
+import LookupRoutes 			from './routes/lookup/lookup.route';
 
 
 // Define your proxy route
@@ -153,8 +154,9 @@ app.get('/', (req, res) => {
 // Route Usage Point
 //===================
 app.use('/api/v1/security', 		SecurityRoutes);
+app.use('/api/v1/dbapi', 			DbAPIRoutes);		//04/05/2024
 app.use('/api/v1/user', 			UserRoutes);
-app.use('/api/v1/lookup', 			LookupRoutes); //10/05/2023
+app.use('/api/v1/lookup', 			LookupRoutes); 		//10/05/2023
 
 app.use('/user', 					UserRoutes);
 
