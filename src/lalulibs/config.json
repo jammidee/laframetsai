@@ -44,18 +44,18 @@
   "frameversion": "1.5.902",
 	
   "mailservice": "gmail",
-  "mailservicelogin": "servzenia@gmail.com",
-  "mailservicepass": "Un1c0rn!X3n!!",
+  "mailservicelogin": "servzenia@gml.com",
+  "mailservicepass": "uniuniuni",
   "mailservicemode": "DEV",
   "mailhost": "mail.connext-ph.com",
   "mailport": "26",
   "mailuser": "devuser@connext-ph.com",
   "mailpass": "userdev12345!",
-  "smsapikey": "50dfcd1e",
-  "smssecretkey": "tN8hkhcXceo5qQi7",
+  "smsapikey": "MSMSMSMSMS",
+  "smssecretkey": "SMSMSMSMSMSMSMS",
   "smsservicemode": "DEV",
 	
-  "mapreversegeokey": "AIzaSyCkK90FfvwlWKUiEPC-VnK1uW4KPqnYF5c",
+  "mapreversegeokey": "AAAAAAAAAAAAAAAAAAAAA-BBBBBBBBBBBB",
 	
   "interval": "60000",
   "cgSwApp": "ON",
