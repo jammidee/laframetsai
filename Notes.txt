@@ -133,6 +133,7 @@ app.listen(3000, () => {
 15. Create the file .gitignore. Place the following:
 
 	# Ignore node_modules
+	src/lalulibs/config.json
 	dist/
 	node_modules/
 	.env
