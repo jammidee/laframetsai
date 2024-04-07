@@ -73,9 +73,41 @@ import initJSONVars from './app/helpers/initjsonvars';
 	await connectionDB();		//JMD 09/30/2023
 	await initJSONVars();		//JMD 09/28/2023
 
-  })();
+})();
 
+//=====================================================
+// Server environment initialization and gathering of
+// information.
+//=====================================================
 
+process.on( 'uncaughtException', function(err){
+	console.log( 'UNCAUGHT EXCEPTION' );
+	console.log( 'UNCAUGHT EXCEPTION' + err.stack || err.message );
+});
+
+//=============================================================
+// Demo mode scripts. This will protect the app from executing 
+// when the date had expired.
+// Added by Jammi Dee 04/07/2019
+//=============================================================
+
+	//Expiration date of the demo app
+	var xdate = new Date("2030-02-12");
+	//The current date
+	var cdate = new Date();
+
+	if( cdate > xdate){
+		//throw  new Error ('Time-bound access to the app error!');
+		console.log('============================================================================');
+		console.log('Time-bound access to the app has been reached!');
+		console.log('The limit is ' + xdate );
+		console.log('============================================================================');
+		
+		process.exit();
+		
+	}
+
+//=============================================================
 
 //===================
 // Routes Entry Point

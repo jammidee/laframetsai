@@ -244,3 +244,5 @@ git clone https://github.com/jammidee/laframetron.git lakuborag
 git remote -v
 git remote set-url origin https://github.com/jammidee/laframetsai.git
 git pull origin main
+
+git status --ignored

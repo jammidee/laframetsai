@@ -15,6 +15,12 @@ TODO:
             - Added site pages for initial login page.
             - 
 
+04/07/2024  - Added Environment Section initialization
+            - Luck version number: Build successful. Version: 1.1.111.1712462124140
+            - Added process.on ( 'uncaughtException', function(err))
+            - Added a function in app.ts to exit when demo mode expires.
+            - 
+
 04/05/2024  - forked lakubots to lakubotsai
             - Addded batch files.
             - Updates labels and notes
