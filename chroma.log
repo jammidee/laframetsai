@@ -50,3 +50,4 @@
 [32mINFO[0m:     [08-04-2024 06:47:34] Waiting for application startup.
 [32mINFO[0m:     [08-04-2024 06:47:34] Application startup complete.
 [32mINFO[0m:     [08-04-2024 06:47:34] Uvicorn running on [1mhttp://localhost:8000[0m (Press CTRL+C to quit)
+[32mINFO[0m:     [08-04-2024 06:48:46] 127.0.0.1:57185 - "GET /api/v1 HTTP/1.1" 200

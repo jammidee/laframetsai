@@ -14,7 +14,10 @@ TODO:
 
             - Added site pages for initial login page.
             - 
-
+04/08/2024  - Added colors library
+            - Added detection of ollama server on localhost
+            -
+            
 04/07/2024  - Added Environment Section initialization
             - Luck version number: Build successful. Version: 1.1.111.1712462124140
             - Added process.on ( 'uncaughtException', function(err))

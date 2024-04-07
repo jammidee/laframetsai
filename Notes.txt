@@ -195,6 +195,8 @@ npm install --save mysql2 04/05/2024
 npm install --save-dev @types/node 04/05/2024
 
 npm install axios --save 03/24/2024
+npm install colors --save 04/08/2024
+
 
 AUDIT
 **Run Audit for vulnerabilty
