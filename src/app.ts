@@ -32,7 +32,7 @@ import path from 'path';
 //import logger from './app/logging/logger';
 import logger from './app/logging/loggerotate';
 
-import { sequelize } from './connection/sequelize';
+import ollama from './routes/llmapi/controller/SimplyOllama';
 
 // Setup the environment variables - JMD 09/11/2023
 import * as dotenv from 'dotenv';
@@ -151,7 +151,19 @@ process.on( 'uncaughtException', function(err){
 
 //=============================================================
 
-
+//===============================
+// Check for ollama on this host
+//===============================
+(async () => {
+    ollama.setBaseURL('http://127.0.0.1:11434');
+    const response = await ollama.ping();
+	if (response !== '') {
+		console.log( "Ollama is up and running!" );
+	} else {
+		console.log( "Failed to connect to Ollama." ); 
+		process.exit();
+	}
+})();
 
 
 
@@ -278,7 +290,7 @@ function appService() {
 
 function appWorker() {
 	
-	console.log('  Time ticks...' );
+	console.log('Time ticks...' );
 	
 };
 
