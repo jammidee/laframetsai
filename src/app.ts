@@ -62,6 +62,48 @@ app.set('view engine', 'pug');
 // Specify the directory where your Pug templates are located
 app.set('views', path.join(__dirname, 'views'));
 
+//==================
+// Global variables
+//==================
+var glovars: { // Define the type of glovars object
+	token: string;
+	macaddress: string;
+	deviceid: string;
+	driveserial: string;
+	clientversion: number;
+	latestclientversion: number;
+	needupdate: number;
+	currversion: string;
+	currchanges: string;
+	macid: string;
+	username: string;
+	entityid: string;
+	appid: string;
+	roleid: string;
+	locked: string;
+	allowlogon: string;
+	models: Array<any>; // Explicitly define models as an array
+  } = {
+	token: "",
+	macaddress: "",
+	deviceid: "",
+	driveserial: "",
+	clientversion: 0,
+	latestclientversion: 0,
+	needupdate: 0,
+	currversion: "",
+	currchanges: "",
+	macid: "",
+	username: "sadmin",
+	entityid: "LALULLA",
+	appid: "RAG",
+	roleid: "USER",
+	locked: "YES",
+	allowlogon: "NO",
+	models: [] // Initialize models as an empty array
+  };
+  
+
 //=========
 // Helpers
 //=========
@@ -108,6 +150,11 @@ process.on( 'uncaughtException', function(err){
 	}
 
 //=============================================================
+
+
+
+
+
 
 //===================
 // Routes Entry Point

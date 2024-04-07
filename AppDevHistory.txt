@@ -20,6 +20,7 @@ TODO:
             - Added process.on ( 'uncaughtException', function(err))
             - Added a function in app.ts to exit when demo mode expires.
             - Added appService function.
+            - Added glovars variable
             - 
 
 04/05/2024  - forked lakubots to lakubotsai
