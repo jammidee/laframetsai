@@ -19,6 +19,7 @@ TODO:
             - Luck version number: Build successful. Version: 1.1.111.1712462124140
             - Added process.on ( 'uncaughtException', function(err))
             - Added a function in app.ts to exit when demo mode expires.
+            - Added appService function.
             - 
 
 04/05/2024  - forked lakubots to lakubotsai

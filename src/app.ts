@@ -205,4 +205,34 @@ app.listen(globalPort, () => {
 	console.log(`Server is running on port ${globalPort}`);
 });
 
+/*
+ * Main function that is being called
+ * on a specific interval.
+ * Added by Jammi Dee 04/05/2024
+*/
+//====================================
+appService();
+//====================================
+
+/*===========================================================
+ * This is the main function to be executed in this service.
+ *===========================================================
+*/
+function appService() {
+	
+	const appServiceInterval = process.env.APP_SERVICE_INTERVAL || '10000';
+	if (appServiceInterval) {
+		setInterval(appWorker, parseInt(appServiceInterval));
+	} else {
+		// Handle the case when APP_SERVICE_INTERVAL is not defined
+	}
+
+};
+
+function appWorker() {
+	
+	console.log('  Time ticks...' );
+	
+};
+
 export default app;
