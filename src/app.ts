@@ -26,16 +26,17 @@
 import express, { json, urlencoded } from 'express';
 //import { createProxyMiddleware } from 'http-proxy-middleware';
 //import cheerio from 'cheerio';
-import cors from "cors";
+import cors 			from "cors";
 
-import path from 'path';
+import colors  			from 'colors/safe';
+import path 			from 'path';
 //import logger from './app/logging/logger';
-import logger from './app/logging/loggerotate';
+import logger 			from './app/logging/loggerotate';
 
-import ollama from './routes/llmapi/controller/SimplyOllama';
+import ollama 			from './routes/llmapi/controller/SimplyOllama';
 
 // Setup the environment variables - JMD 09/11/2023
-import * as dotenv from 'dotenv';
+import * as dotenv 		from 'dotenv';
 dotenv.config();
 
 const app = express();
@@ -155,16 +156,96 @@ process.on( 'uncaughtException', function(err){
 // Check for ollama on this host
 //===============================
 (async () => {
-    ollama.setBaseURL('http://127.0.0.1:11434');
+    ollama.setBaseURL(`http://${process.env.AI_EXTRA_HOST}:${process.env.AI_EXTRA_PORT}` || 'http://127.0.0.1:11434');
     const response = await ollama.ping();
 	if (response !== '') {
-		console.log( "Ollama is up and running!" );
+		console.log( colors.green("Ollama is up and running!") );
 	} else {
-		console.log( "Failed to connect to Ollama." ); 
+		console.log( colors.red("Failed to connect to Ollama.") ); 
 		process.exit();
 	}
 })();
 
+//=================================
+// Check for chromadb on this host
+//=================================
+(async () => {
+    ollama.setBaseURL( `http://${process.env.VEC_EMBED_HOST}:${process.env.VEC_EMBED_PORT}` || 'http://127.0.0.1:8000' );
+    const response = await ollama.pingchroma();
+	if (response !== '') {
+		console.log( colors.green("ChromaDB is up and running!") );
+	} else {
+		console.log( colors.red("Failed to connect to ChromaDB.") ); 
+		process.exit();
+	}
+})();
+
+async function populateModel( model:string, host:string, port:string){
+    try {
+      let searchModel = model;
+      ollama.setBaseURL(`http://${host}:${port}`);
+      const response = await ollama.tags();
+      
+      // Check if response has models
+      if (response && response.models && Array.isArray(response.models)) {
+        let modelFound = false;
+        // Loop through each model
+        response.models.forEach((model:any) => {
+
+          const [modelName] = model.model.split(':');
+            // Check if the model matches the searchModel
+            if (modelName === searchModel) {
+                //For Enterprise version only used these models
+                glovars.models.push(model);
+                modelFound = true;
+            };
+
+        });
+
+        // Check if the searchModel was found
+        if (modelFound) {
+            console.log( colors.green(`Pre-defined model found: `) + colors.yellow(`${searchModel}`) );
+
+        } else {
+            console.log( colors.red(`Pre-defined model not found: `) + colors.red(`${searchModel}`));
+			process.exit();
+        }
+      } else {
+          console.error( colors.red(`No models found on http://${host}:${port}`));
+          process.exit();
+      };
+    } catch (error) {
+      console.error(colors.red(`Error occurred while fetching tags: ${error}`));
+      process.exit();
+    };
+
+}; //function populateModel( model:string, host:string, port:string)
+
+
+( async ()=>{
+
+	//=============================================================
+	// Check for the AI_MASTER_MODEL --> This is a required model.
+	//=============================================================
+	await populateModel( process.env.AI_MASTER_MODEL || '' , process.env.AI_MASTER_HOST || '' , process.env.AI_MASTER_PORT || '');
+
+	//=============================================================
+	// Check for the AI_IMAGE_MODEL --> This is a required model.
+	//=============================================================
+	await populateModel( process.env.AI_IMAGE_MODEL || '' , process.env.AI_IMAGE_HOST || '' , process.env.AI_IMAGE_PORT || '');
+
+	//=============================================================
+	// Check for the AI_EMBED_MODEL --> This is a required model.
+	//=============================================================
+	await populateModel( process.env.AI_EMBED_MODEL || '' , process.env.AI_EMBED_HOST || '' , process.env.AI_EMBED_PORT || '');
+
+	//=============================================================
+	// Check for the AI_TOOLING_MODEL --> This is a required model.
+	//=============================================================
+	await populateModel( process.env.AI_TOOLING_MODEL || '' , process.env.AI_TOOLING_HOST || '' , process.env.AI_TOOLING_PORT || '');
+
+
+})();
 
 
 
@@ -290,7 +371,7 @@ function appService() {
 
 function appWorker() {
 	
-	console.log('Time ticks...' );
+	console.log( colors.green('Time ticks...') );
 	
 };
 

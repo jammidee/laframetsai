@@ -16,8 +16,13 @@ TODO:
             - 
 04/08/2024  - Added colors library
             - Added detection of ollama server on localhost
-            -
-            
+            - Added detection of chromadb server on localhost
+            - Added colors in the messages.
+            - Fixed the .env file
+            - Remove global credentials that was included during sync of git.
+            - Added checking of individual pre-defined models
+            - 
+
 04/07/2024  - Added Environment Section initialization
             - Luck version number: Build successful. Version: 1.1.111.1712462124140
             - Added process.on ( 'uncaughtException', function(err))

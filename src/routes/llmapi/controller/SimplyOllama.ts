@@ -64,12 +64,12 @@ class SimplyOllama {
         }
     }
 
-    async tags(request: AxiosRequestConfig): Promise<any> {
+    async tags(): Promise<any> {
 
         const url = `${this.baseURL}/${this.subURL}/tags`;
 
         try {
-            const response = await axios.get(url, request);
+            const response = await axios.get(url);
             return response.data;
         } catch (error) {
             console.error('Error fetching response:', error);

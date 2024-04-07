@@ -51,3 +51,177 @@
 [32mINFO[0m:     [08-04-2024 06:47:34] Application startup complete.
 [32mINFO[0m:     [08-04-2024 06:47:34] Uvicorn running on [1mhttp://localhost:8000[0m (Press CTRL+C to quit)
 [32mINFO[0m:     [08-04-2024 06:48:46] 127.0.0.1:57185 - "GET /api/v1 HTTP/1.1" 200
+[32mINFO[0m:     [08-04-2024 07:15:52] Shutting down
+[32mINFO[0m:     [08-04-2024 07:15:52] Waiting for application shutdown.
+[36mDEBUG[0m:    [08-04-2024 07:15:52] Stopping component System
+[36mDEBUG[0m:    [08-04-2024 07:15:52] Stopping component SegmentAPI
+[36mDEBUG[0m:    [08-04-2024 07:15:52] Stopping component LocalSegmentManager
+[36mDEBUG[0m:    [08-04-2024 07:15:52] Stopping component Posthog
+[36mDEBUG[0m:    [08-04-2024 07:15:52] Stopping component QuotaEnforcer
+[36mDEBUG[0m:    [08-04-2024 07:15:52] Stopping component SqliteDB
+[36mDEBUG[0m:    [08-04-2024 07:15:52] Stopping component SimpleAssignmentPolicy
+[36mDEBUG[0m:    [08-04-2024 07:15:52] Stopping component OpenTelemetryClient
+[32mINFO[0m:     [08-04-2024 07:15:52] Application shutdown complete.
+[32mINFO[0m:     [08-04-2024 07:15:52] Finished server process [[36m34216[0m]
+[33mWARNING[0m:  [08-04-2024 07:17:47] chroma_server_nofile is not supported on Windows. chroma_server_nofile will not be set.
+[32mINFO[0m:     [08-04-2024 07:17:47] Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+[36mDEBUG[0m:    [08-04-2024 07:17:47] Starting component System
+[36mDEBUG[0m:    [08-04-2024 07:17:47] Starting component OpenTelemetryClient
+[36mDEBUG[0m:    [08-04-2024 07:17:47] Starting component SimpleAssignmentPolicy
+[36mDEBUG[0m:    [08-04-2024 07:17:47] Starting component SqliteDB
+[36mDEBUG[0m:    [08-04-2024 07:17:47] Starting component QuotaEnforcer
+[36mDEBUG[0m:    [08-04-2024 07:17:47] Starting component Posthog
+[36mDEBUG[0m:    [08-04-2024 07:17:47] Starting component LocalSegmentManager
+[36mDEBUG[0m:    [08-04-2024 07:17:47] Starting component SegmentAPI
+[32mINFO[0m:     [08-04-2024 07:17:47] Started server process [[36m28824[0m]
+[32mINFO[0m:     [08-04-2024 07:17:47] Waiting for application startup.
+[32mINFO[0m:     [08-04-2024 07:17:47] Application startup complete.
+[32mINFO[0m:     [08-04-2024 07:17:47] Uvicorn running on [1mhttp://localhost:8000[0m (Press CTRL+C to quit)
+[32mINFO[0m:     [08-04-2024 07:20:31] 127.0.0.1:57418 - "GET /api/v1 HTTP/1.1" 200
+[33mWARNING[0m:  [08-04-2024 07:22:43] chroma_server_nofile is not supported on Windows. chroma_server_nofile will not be set.
+[32mINFO[0m:     [08-04-2024 07:22:43] Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+[36mDEBUG[0m:    [08-04-2024 07:22:43] Starting component System
+[36mDEBUG[0m:    [08-04-2024 07:22:43] Starting component OpenTelemetryClient
+[36mDEBUG[0m:    [08-04-2024 07:22:43] Starting component SimpleAssignmentPolicy
+[36mDEBUG[0m:    [08-04-2024 07:22:43] Starting component SqliteDB
+[36mDEBUG[0m:    [08-04-2024 07:22:43] Starting component QuotaEnforcer
+[36mDEBUG[0m:    [08-04-2024 07:22:43] Starting component Posthog
+[36mDEBUG[0m:    [08-04-2024 07:22:43] Starting component LocalSegmentManager
+[36mDEBUG[0m:    [08-04-2024 07:22:43] Starting component SegmentAPI
+[32mINFO[0m:     [08-04-2024 07:22:43] Started server process [[36m27124[0m]
+[32mINFO[0m:     [08-04-2024 07:22:43] Waiting for application startup.
+[32mINFO[0m:     [08-04-2024 07:22:43] Application startup complete.
+[32mINFO[0m:     [08-04-2024 07:22:43] Uvicorn running on [1mhttp://localhost:8000[0m (Press CTRL+C to quit)
+[32mINFO[0m:     [08-04-2024 07:22:53] 127.0.0.1:57443 - "GET /api/v1 HTTP/1.1" 200
+[32mINFO[0m:     [08-04-2024 07:24:05] Shutting down
+[32mINFO[0m:     [08-04-2024 07:24:05] Finished server process [[36m27124[0m]
+[36mDEBUG[0m:    [08-04-2024 07:24:05] Stopping component System
+[36mDEBUG[0m:    [08-04-2024 07:24:05] Stopping component SegmentAPI
+[36mDEBUG[0m:    [08-04-2024 07:24:05] Stopping component LocalSegmentManager
+[36mDEBUG[0m:    [08-04-2024 07:24:05] Stopping component Posthog
+[36mDEBUG[0m:    [08-04-2024 07:24:05] Stopping component QuotaEnforcer
+[36mDEBUG[0m:    [08-04-2024 07:24:05] Stopping component SqliteDB
+[36mDEBUG[0m:    [08-04-2024 07:24:05] Stopping component SimpleAssignmentPolicy
+[36mDEBUG[0m:    [08-04-2024 07:24:05] Stopping component OpenTelemetryClient
+[31mERROR[0m:    [08-04-2024 07:24:05] Traceback (most recent call last):
+  File "C:\Python312\Lib\asyncio\runners.py", line 194, in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+  File "C:\Python312\Lib\asyncio\runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python312\Lib\asyncio\base_events.py", line 672, in run_until_complete
+    self.run_forever()
+  File "C:\Python312\Lib\asyncio\windows_events.py", line 321, in run_forever
+    super().run_forever()
+  File "C:\Python312\Lib\asyncio\base_events.py", line 639, in run_forever
+    self._run_once()
+  File "C:\Python312\Lib\asyncio\base_events.py", line 1985, in _run_once
+    handle._run()
+  File "C:\Python312\Lib\asyncio\events.py", line 88, in _run
+    self._context.run(self._callback, *self._args)
+  File "C:\Python312\Lib\site-packages\uvicorn\server.py", line 68, in serve
+    with self.capture_signals():
+  File "C:\Python312\Lib\contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "C:\Python312\Lib\site-packages\uvicorn\server.py", line 328, in capture_signals
+    signal.raise_signal(captured_signal)
+  File "C:\Python312\Lib\asyncio\runners.py", line 157, in _on_sigint
+    raise KeyboardInterrupt()
+KeyboardInterrupt
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python312\Lib\site-packages\starlette\routing.py", line 743, in lifespan
+    await receive()
+  File "C:\Python312\Lib\site-packages\uvicorn\lifespan\on.py", line 137, in receive
+    return await self.receive_queue.get()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python312\Lib\asyncio\queues.py", line 158, in get
+    await getter
+asyncio.exceptions.CancelledError
+
+[33mWARNING[0m:  [08-04-2024 07:29:06] chroma_server_nofile is not supported on Windows. chroma_server_nofile will not be set.
+[32mINFO[0m:     [08-04-2024 07:29:07] Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+[36mDEBUG[0m:    [08-04-2024 07:29:07] Starting component System
+[36mDEBUG[0m:    [08-04-2024 07:29:07] Starting component OpenTelemetryClient
+[36mDEBUG[0m:    [08-04-2024 07:29:07] Starting component SimpleAssignmentPolicy
+[36mDEBUG[0m:    [08-04-2024 07:29:07] Starting component SqliteDB
+[36mDEBUG[0m:    [08-04-2024 07:29:07] Starting component QuotaEnforcer
+[36mDEBUG[0m:    [08-04-2024 07:29:07] Starting component Posthog
+[36mDEBUG[0m:    [08-04-2024 07:29:07] Starting component LocalSegmentManager
+[36mDEBUG[0m:    [08-04-2024 07:29:07] Starting component SegmentAPI
+[32mINFO[0m:     [08-04-2024 07:29:07] Started server process [[36m28620[0m]
+[32mINFO[0m:     [08-04-2024 07:29:07] Waiting for application startup.
+[32mINFO[0m:     [08-04-2024 07:29:07] Application startup complete.
+[32mINFO[0m:     [08-04-2024 07:29:07] Uvicorn running on [1mhttp://localhost:8000[0m (Press CTRL+C to quit)
+[32mINFO[0m:     [08-04-2024 07:29:14] 127.0.0.1:57476 - "GET /api/v1 HTTP/1.1" 200
+[32mINFO[0m:     [08-04-2024 07:34:49] Shutting down
+[32mINFO[0m:     [08-04-2024 07:34:49] Finished server process [[36m28620[0m]
+[36mDEBUG[0m:    [08-04-2024 07:34:49] Stopping component System
+[36mDEBUG[0m:    [08-04-2024 07:34:49] Stopping component SegmentAPI
+[36mDEBUG[0m:    [08-04-2024 07:34:49] Stopping component LocalSegmentManager
+[36mDEBUG[0m:    [08-04-2024 07:34:49] Stopping component Posthog
+[36mDEBUG[0m:    [08-04-2024 07:34:49] Stopping component QuotaEnforcer
+[36mDEBUG[0m:    [08-04-2024 07:34:49] Stopping component SqliteDB
+[36mDEBUG[0m:    [08-04-2024 07:34:49] Stopping component SimpleAssignmentPolicy
+[36mDEBUG[0m:    [08-04-2024 07:34:49] Stopping component OpenTelemetryClient
+[31mERROR[0m:    [08-04-2024 07:34:49] Traceback (most recent call last):
+  File "C:\Python312\Lib\asyncio\runners.py", line 194, in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+  File "C:\Python312\Lib\asyncio\runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python312\Lib\asyncio\base_events.py", line 672, in run_until_complete
+    self.run_forever()
+  File "C:\Python312\Lib\asyncio\windows_events.py", line 321, in run_forever
+    super().run_forever()
+  File "C:\Python312\Lib\asyncio\base_events.py", line 639, in run_forever
+    self._run_once()
+  File "C:\Python312\Lib\asyncio\base_events.py", line 1985, in _run_once
+    handle._run()
+  File "C:\Python312\Lib\asyncio\events.py", line 88, in _run
+    self._context.run(self._callback, *self._args)
+  File "C:\Python312\Lib\site-packages\uvicorn\server.py", line 68, in serve
+    with self.capture_signals():
+  File "C:\Python312\Lib\contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "C:\Python312\Lib\site-packages\uvicorn\server.py", line 328, in capture_signals
+    signal.raise_signal(captured_signal)
+  File "C:\Python312\Lib\asyncio\runners.py", line 157, in _on_sigint
+    raise KeyboardInterrupt()
+KeyboardInterrupt
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Python312\Lib\site-packages\starlette\routing.py", line 743, in lifespan
+    await receive()
+  File "C:\Python312\Lib\site-packages\uvicorn\lifespan\on.py", line 137, in receive
+    return await self.receive_queue.get()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python312\Lib\asyncio\queues.py", line 158, in get
+    await getter
+asyncio.exceptions.CancelledError
+
+[33mWARNING[0m:  [08-04-2024 07:48:07] chroma_server_nofile is not supported on Windows. chroma_server_nofile will not be set.
+[32mINFO[0m:     [08-04-2024 07:48:07] Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+[36mDEBUG[0m:    [08-04-2024 07:48:07] Starting component System
+[36mDEBUG[0m:    [08-04-2024 07:48:07] Starting component OpenTelemetryClient
+[36mDEBUG[0m:    [08-04-2024 07:48:07] Starting component SimpleAssignmentPolicy
+[36mDEBUG[0m:    [08-04-2024 07:48:07] Starting component SqliteDB
+[36mDEBUG[0m:    [08-04-2024 07:48:07] Starting component QuotaEnforcer
+[36mDEBUG[0m:    [08-04-2024 07:48:07] Starting component Posthog
+[36mDEBUG[0m:    [08-04-2024 07:48:07] Starting component LocalSegmentManager
+[36mDEBUG[0m:    [08-04-2024 07:48:07] Starting component SegmentAPI
+[32mINFO[0m:     [08-04-2024 07:48:07] Started server process [[36m11592[0m]
+[32mINFO[0m:     [08-04-2024 07:48:07] Waiting for application startup.
+[32mINFO[0m:     [08-04-2024 07:48:07] Application startup complete.
+[32mINFO[0m:     [08-04-2024 07:48:07] Uvicorn running on [1mhttp://localhost:8000[0m (Press CTRL+C to quit)
+[32mINFO[0m:     [08-04-2024 07:48:14] 127.0.0.1:57580 - "GET /api/v1 HTTP/1.1" 200
+[32mINFO[0m:     [08-04-2024 07:49:30] 127.0.0.1:57589 - "GET /api/v1 HTTP/1.1" 200
+[32mINFO[0m:     [08-04-2024 07:52:55] 127.0.0.1:57602 - "GET /api/v1 HTTP/1.1" 200
+[32mINFO[0m:     [08-04-2024 07:55:04] 127.0.0.1:57621 - "GET /api/v1 HTTP/1.1" 200
+[32mINFO[0m:     [08-04-2024 07:57:34] 127.0.0.1:57631 - "GET /api/v1 HTTP/1.1" 200
