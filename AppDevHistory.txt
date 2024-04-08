@@ -22,6 +22,7 @@ TODO:
             - Remove global credentials that was included during sync of git.
             - Added checking of individual pre-defined models
             - Successfully executed the dbquery function in dbapi
+            - Added client folder in the app. This will serve as a basic client example
             - 
 
 04/07/2024  - Added Environment Section initialization
