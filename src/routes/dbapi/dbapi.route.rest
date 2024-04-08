@@ -38,6 +38,6 @@ Content-Type: application/json
 
 @usertoken = {{getusertoken.response.body.$.access_token}}
 
-# @name validatetoken
-GET {{baseUrl}}/api/v1/security/validatetoken HTTP/1.1
-Authorization: Bearer {{usertoken}}
+# @name ollamacheck
+GET {{baseUrl}}/api/v1/dbapi/dbquery HTTP/1.1
+Authorization: Bearer {{token}}
