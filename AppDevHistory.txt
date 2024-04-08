@@ -21,6 +21,7 @@ TODO:
             - Fixed the .env file
             - Remove global credentials that was included during sync of git.
             - Added checking of individual pre-defined models
+            - Successfully executed the dbquery function in dbapi
             - 
 
 04/07/2024  - Added Environment Section initialization

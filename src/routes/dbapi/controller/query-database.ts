@@ -23,9 +23,40 @@
 */
 
 import { RequestHandler } from "express";
+import mysql from "mysql2/promise";
 
 export const dbquery: RequestHandler = async (req, res) => {
+    try {
+        const userscript: any = req.query.sqlscript;
 
-    return res.status(401).json({ message: "Database Query!!" });
+        // Check if SQL script is provided
+        if (!userscript) {
+            return res.status(400).json({ error: "SQL script is required" });
+        }
 
+        // Decode userscript
+        const psql = Buffer.from(userscript, 'base64').toString('utf-8');
+        console.log("Decoded SQL script is: " + psql);
+
+        // Connect to the database using environment variables
+        const connection = await mysql.createConnection({
+            host: process.env.DB_HOST || 'localhost',
+            user: process.env.DB_USER || 'root',
+            password: process.env.DB_PASSWORD || '',
+            database: process.env.DB_NAME || 'db_dev',
+        });
+
+        // Execute the SQL query
+        const [rows, fields] = await connection.execute(psql);
+
+        // Release the connection
+        await connection.end();
+
+        // Return data in JSON format
+        return res.status(200).json({ rows });
+
+    } catch (error) {
+        console.error("Error executing database query:", error);
+        return res.status(500).json({ error: "Internal server error" });
+    }
 };

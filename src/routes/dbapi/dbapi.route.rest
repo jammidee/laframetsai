@@ -37,7 +37,8 @@ Content-Type: application/json
 ###
 
 @usertoken = {{getusertoken.response.body.$.access_token}}
+@script = 'c2VsZWN0ICogZnJvbSB0Ymx1c2Vyczs='
 
-# @name ollamacheck
-GET {{baseUrl}}/api/v1/dbapi/dbquery HTTP/1.1
-Authorization: Bearer {{token}}
+# @name dbquery
+GET {{baseUrl}}/api/v1/dbapi/dbquery?sqlscript={{script}} HTTP/1.1
+Authorization: Bearer {{usertoken}}

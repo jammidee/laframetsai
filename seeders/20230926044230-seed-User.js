@@ -40,6 +40,15 @@ module.exports = {
           createdAt: new Date(),
           updatedAt: new Date(),
         },
+        {
+          name: 'Khaele Ilijah Dee',
+          email: 'kid_dee@yahoo.com',
+          password: 'sadmin12345!',
+          lastseen: new Date(),
+          lastupdate: new Date(),
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        },
 
     ]);
   },
