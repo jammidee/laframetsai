@@ -25,7 +25,7 @@
 require('dotenv').config();
 import { RequestHandler }   from "express";
 
-import ollama from './SimplyOllama';
+import ollama from '../class/SimplyOllama';
 
 export const ollamaCheck: RequestHandler = async (req, res) => {
 

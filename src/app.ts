@@ -33,7 +33,7 @@ import path 			from 'path';
 //import logger from './app/logging/logger';
 import logger 			from './app/logging/loggerotate';
 
-import ollama 			from './routes/llmapi/controller/SimplyOllama';
+import ollama 			from './routes/llmapi/class/SimplyOllama';
 
 // Setup the environment variables - JMD 09/11/2023
 import * as dotenv 		from 'dotenv';

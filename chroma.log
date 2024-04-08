@@ -286,3 +286,4 @@ asyncio.exceptions.CancelledError
 [32mINFO[0m:     [08-04-2024 09:21:41] Uvicorn running on [1mhttp://localhost:8000[0m (Press CTRL+C to quit)
 [32mINFO[0m:     [08-04-2024 09:21:49] 127.0.0.1:58178 - "GET /api/v1 HTTP/1.1" 200
 [32mINFO[0m:     [08-04-2024 09:33:39] 127.0.0.1:60870 - "GET /api/v1 HTTP/1.1" 200
+[32mINFO[0m:     [08-04-2024 09:39:49] 127.0.0.1:61406 - "GET /api/v1 HTTP/1.1" 200
