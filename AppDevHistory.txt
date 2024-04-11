@@ -13,7 +13,9 @@ Tested / QA by:				Jammi Dee
 TODO:
 
             - Added site pages for initial login page.
+            - Added loading of config via JSON
             - 
+
 04/08/2024  - Added colors library
             - Added detection of ollama server on localhost
             - Added detection of chromadb server on localhost

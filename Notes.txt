@@ -148,6 +148,8 @@ EXTENSIONS
 5. Material Icon Theme - Philipp Kief
 6. dotEnv - MikeStead
 7. Markdown Preview Github Styling - Matt Bierner
+8. NSIS - idleberg
+9. 
 
 LIBRARIES
 
