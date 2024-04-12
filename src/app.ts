@@ -253,10 +253,12 @@ async function populateModel( model:string, host:string, port:string){
 // Routes Entry Point
 //===================
 import SecurityRoutes 			from './routes/security/security.route';
-import DbAPIRoutes 				from './routes/dbapi/dbapi.route';			// JMD 04/05/2024
-import LLMAPIRoutes 			from './routes/llmapi/llmapi.route';		// JMD 04/05/2024
+import DbAPIRoutes 				from './routes/dbapi/dbapi.route';					// JMD 04/05/2024
+import LLMAPIRoutes 			from './routes/llmapi/llmapi.route';				// JMD 04/05/2024
 import UserRoutes 				from './routes/user/user.route';
 import LookupRoutes 			from './routes/lookup/lookup.route';
+
+import ClientRoutes 			from '../src/routes/apps/client/client.route';		// JMD 04/12/2024
 
 
 // Define your proxy route
@@ -335,6 +337,8 @@ app.use('/api/v1/user', 			UserRoutes);
 app.use('/api/v1/lookup', 			LookupRoutes); 		//10/05/2023
 
 app.use('/user', 					UserRoutes);
+
+app.use('/client', 					ClientRoutes);		//04/12/2024
 
 
 app.use((req, res) => {
