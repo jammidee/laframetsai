@@ -22,20 +22,32 @@
  *
 */
 
-import { Router } from "express";
-import { authenticateToken } from '../../../app/helpers/jwt-generate';
 
-import { ollamaCheck } from "../../llmapi/controller/ollama-check";
-import { chromaCheck } from "../../llmapi/controller/chroma-check";
+import { Router, Request, Response } from 'express';
+import path from 'path';
 
-const ClientApiRoutes = Router();
+const LoginRoutes = Router();
 
-ClientApiRoutes.get("/", (req, res) => {
-  res.json({ message: "Login Route API" });
+//=======
+// CRUDS
+//=======
+LoginRoutes.use("/", (req: Request, res: Response, next) => {
+	
+    // You can perform common tasks for all HTTP methods here
+    console.log('Request received for /login');
+
+    // Pass control to the next middleware or route handler
+    next();
+    
 });
 
-// Check if ollama is installed in the server 04/05/2024
-ClientApiRoutes.get("/ollamacheck", authenticateToken, ollamaCheck );              //JMD 04/05/2024
-ClientApiRoutes.get("/chromacheck", authenticateToken, chromaCheck );              //JMD 04/06/2024
+// Define your user-related routes here
+LoginRoutes.get('/', (req: Request, res: Response) => {
+	
+	res.render('apps/login', { username: 'John' });
+	//const filePath = path.join(__dirname, '../..', 'views', 'user', 'user.html');
+	//res.sendFile(filePath);
 
-export default ClientApiRoutes;
+});
+
+export default LoginRoutes;
