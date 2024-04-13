@@ -258,7 +258,8 @@ import LLMAPIRoutes 			from './routes/llmapi/llmapi.route';				// JMD 04/05/2024
 import UserRoutes 				from './routes/user/user.route';
 import LookupRoutes 			from './routes/lookup/lookup.route';
 
-import ClientRoutes 			from '../src/routes/apps/client/client.route';		// JMD 04/12/2024
+import ClientRoutes 			from './routes/apps/client/client.route';			// JMD 04/12/2024
+import LoginRoutes 				from './routes/apps/login/login.route';				// JMD 04/14/2024
 
 
 // Define your proxy route
@@ -339,6 +340,7 @@ app.use('/api/v1/lookup', 			LookupRoutes); 		//10/05/2023
 app.use('/user', 					UserRoutes);
 
 app.use('/client', 					ClientRoutes);		//04/12/2024
+app.use('/client/login', 			LoginRoutes);		//04/14/2024
 
 
 app.use((req, res) => {

@@ -15,6 +15,10 @@ TODO:
             - Added site pages for initial login page.
             - Added loading of config via JSON
             - 
+04/13/2024  - Added login module
+            - Successfully loaded a page - login page
+            - 
+
 04/12/2024  - Added client route to be used for test client
             - 
 
