@@ -25,7 +25,7 @@
 import { Router } from "express";
 import { authenticateToken } from '../../app/helpers/jwt-generate';
 
-import { dbquery } from "./controller/query-database";
+import { get_model_master, post_model_master } from "./controller/model.master";
 
 const ConfigRoutes = Router();
 
@@ -33,6 +33,7 @@ ConfigRoutes.get("/", (req, res) => {
   res.json({ message: "Config Route API" });
 });
 
-ConfigRoutes.use("/dbquery", authenticateToken, dbquery );              //JMD 04/05/2024
+ConfigRoutes.get("/model/master",   authenticateToken,       get_model_master );              //JMD 04/18/2024
+ConfigRoutes.post("/model/master",  authenticateToken,       post_model_master );             //JMD 04/18/2024
 
 export default ConfigRoutes;

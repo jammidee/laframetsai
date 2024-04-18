@@ -304,3 +304,24 @@ asyncio.exceptions.CancelledError
 [32mINFO[0m:     [14-04-2024 00:15:41] 127.0.0.1:62269 - "GET /api/v1 HTTP/1.1" 200
 [32mINFO[0m:     [14-04-2024 00:17:30] 127.0.0.1:62281 - "GET /api/v1 HTTP/1.1" 200
 [32mINFO[0m:     [14-04-2024 00:23:59] 127.0.0.1:62313 - "GET /api/v1 HTTP/1.1" 200
+[33mWARNING[0m:  [19-04-2024 00:21:50] chroma_server_nofile is not supported on Windows. chroma_server_nofile will not be set.
+[32mINFO[0m:     [19-04-2024 00:21:51] Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+[36mDEBUG[0m:    [19-04-2024 00:21:51] Starting component System
+[36mDEBUG[0m:    [19-04-2024 00:21:51] Starting component OpenTelemetryClient
+[36mDEBUG[0m:    [19-04-2024 00:21:51] Starting component SimpleAssignmentPolicy
+[36mDEBUG[0m:    [19-04-2024 00:21:51] Starting component SqliteDB
+[36mDEBUG[0m:    [19-04-2024 00:21:51] Starting component QuotaEnforcer
+[36mDEBUG[0m:    [19-04-2024 00:21:51] Starting component Posthog
+[36mDEBUG[0m:    [19-04-2024 00:21:51] Starting component LocalSegmentManager
+[36mDEBUG[0m:    [19-04-2024 00:21:51] Starting component SegmentAPI
+[32mINFO[0m:     [19-04-2024 00:21:51] Started server process [[36m34240[0m]
+[32mINFO[0m:     [19-04-2024 00:21:51] Waiting for application startup.
+[32mINFO[0m:     [19-04-2024 00:21:51] Application startup complete.
+[32mINFO[0m:     [19-04-2024 00:21:51] Uvicorn running on [1mhttp://localhost:8000[0m (Press CTRL+C to quit)
+[32mINFO[0m:     [19-04-2024 00:22:00] 127.0.0.1:54967 - "GET /api/v1 HTTP/1.1" 200
+[32mINFO[0m:     [19-04-2024 00:22:48] 127.0.0.1:54974 - "GET /api/v1 HTTP/1.1" 200
+[32mINFO[0m:     [19-04-2024 00:50:18] 127.0.0.1:55201 - "GET /api/v1 HTTP/1.1" 200
+[32mINFO[0m:     [19-04-2024 00:53:25] 127.0.0.1:55235 - "GET /api/v1 HTTP/1.1" 200
+[32mINFO[0m:     [19-04-2024 01:11:27] 127.0.0.1:55367 - "GET /api/v1 HTTP/1.1" 200
+[32mINFO[0m:     [19-04-2024 01:19:04] 127.0.0.1:55420 - "GET /api/v1 HTTP/1.1" 200
+[32mINFO[0m:     [19-04-2024 01:21:43] 127.0.0.1:55465 - "GET /api/v1 HTTP/1.1" 200

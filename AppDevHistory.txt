@@ -16,8 +16,9 @@ TODO:
             - Added loading of config via JSON
             - 
 04/18/2024  - Added the folder config to hold the configuration completed
-            -
-            
+            - Added logic to the route config
+            - 
+
 04/13/2024  - Added login module
             - Successfully loaded a page - login page
             - 

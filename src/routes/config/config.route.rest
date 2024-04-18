@@ -1,0 +1,41 @@
+
+###
+
+@hostname = localhost
+@port = 3000
+@host = {{hostname}}:{{port}}
+@baseUrl = http://{{host}}
+@basePath = /api/v1/llmapi
+
+
+# @name dbapi
+GET {{baseUrl}}/api/v1/config HTTP/1.1
+Content-Type: application/x-www-form-urlencoded
+
+###
+
+# @name getaccesstoken
+GET {{baseUrl}}/api/v1/security/getaccesstoken HTTP/1.1
+Authorization: Basic {{$dotenv BASIC_USERNAME}}:{{$dotenv BASIC_PASSWORD}}
+Content-Type: application/json
+
+###
+
+@token = {{getaccesstoken.response.body.$.access_token}}
+
+# @name get_model_master
+GET {{baseUrl}}/api/v1/config/model/master HTTP/1.1
+Authorization: Bearer {{token}}
+
+###
+
+# @name post_model_master
+POST {{baseUrl}}/api/v1/config/model/master HTTP/1.1
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+    "model": "llama3",
+    "host": "127.0.0.3",
+    "port": "11435"
+}
