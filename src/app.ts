@@ -253,6 +253,7 @@ async function populateModel( model:string, host:string, port:string){
 // Routes Entry Point
 //===================
 import SecurityRoutes 			from './routes/security/security.route';
+import ConfigRoutes 			from './routes/config/config.route';				// JMD 04/18/2024
 import DbAPIRoutes 				from './routes/dbapi/dbapi.route';					// JMD 04/05/2024
 import LLMAPIRoutes 			from './routes/llmapi/llmapi.route';				// JMD 04/05/2024
 import UserRoutes 				from './routes/user/user.route';
@@ -330,6 +331,7 @@ app.get('/', (req, res) => {
 // Route Usage Point
 //===================
 app.use('/api/v1/security', 		SecurityRoutes);
+app.use('/api/v1/config', 			ConfigRoutes);		//04/18/2024
 
 app.use('/api/v1/dbapi', 			DbAPIRoutes);		//04/05/2024
 app.use('/api/v1/llmapi', 			LLMAPIRoutes);		//04/05/2024
