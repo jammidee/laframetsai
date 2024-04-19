@@ -108,13 +108,15 @@ var glovars: { // Define the type of glovars object
 //=========
 // Helpers
 //=========
-import connectionDB from './connection/connectiondb';
-import initJSONVars from './app/helpers/initjsonvars';
+import connectionDB 		from './connection/connectiondb';
+import initJSONVars 		from './app/helpers/initjsonvars';
+import configInitJSON 		from './routes/config/config.init.json';
 
 (async () => {
 
 	await connectionDB();		//JMD 09/30/2023
 	await initJSONVars();		//JMD 09/28/2023
+	await configInitJSON();		//JMD 04/19/2024
 
 })();
 

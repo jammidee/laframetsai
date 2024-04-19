@@ -15,6 +15,10 @@ TODO:
             - Added site pages for initial login page.
             - Added loading of config via JSON
             - 
+04/19/2024  - Added the function configInitJSON
+            - Added function readServerConfig
+            - 
+            
 04/18/2024  - Added the folder config to hold the configuration completed
             - Added logic to the route config
             - 

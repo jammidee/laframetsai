@@ -49,9 +49,9 @@ export const post_model_master: RequestHandler = async (req, res) => {
         const path  = require('path');
 
         // Get data from the form
-        //const { model, host, port } = req.body;
+        const { model, host, port } = req.body;
 
-        console.log(`${model} ${host} ${port} `);
+        //console.log(`${model} ${host} ${port} `);
         // Read the existing contents of the .env file
         let envContent = fs.readFileSync(path.resolve(__dirname, '.env'), 'utf8');
 
