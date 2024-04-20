@@ -111,12 +111,14 @@ var glovars: { // Define the type of glovars object
 import connectionDB 		from './connection/connectiondb';
 import initJSONVars 		from './app/helpers/initjsonvars';
 import configInitJSON 		from './routes/config/config.init.json';
+import configInitPrompt 	from './routes/config/config.init.prompt';
 
 (async () => {
 
 	await connectionDB();		//JMD 09/30/2023
 	await initJSONVars();		//JMD 09/28/2023
 	await configInitJSON();		//JMD 04/19/2024
+	await configInitPrompt();	//JMD 04/20/2024
 
 })();
 
@@ -263,6 +265,7 @@ import LookupRoutes 			from './routes/lookup/lookup.route';
 
 import ClientRoutes 			from './routes/apps/client/client.route';			// JMD 04/12/2024
 import LoginRoutes 				from './routes/apps/login/login.route';				// JMD 04/14/2024
+
 
 
 // Define your proxy route

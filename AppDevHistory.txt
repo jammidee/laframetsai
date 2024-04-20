@@ -13,6 +13,7 @@ Tested / QA by:				Jammi Dee
 TODO:
 
             - Added site pages for initial login page.
+            - Keep global variables in memory like the glovars 
             - 
 
 04/20/2024  - Successfully created a function to write a json file.
