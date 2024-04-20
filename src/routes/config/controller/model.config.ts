@@ -25,6 +25,20 @@
 import { RequestHandler } from "express";
 import {readServerConfig, writeServerConfig }  from "../config.json";
 
+export const get_config_all: RequestHandler = async (req, res) => {
+    try {
+
+        const conf = await readServerConfig();
+
+        // Return data in JSON format
+        return res.status(200).json( conf );
+
+    } catch (error) {
+        console.error("Error executing get config query:", error);
+        return res.status(500).json({ error: "Internal server error" });
+    }
+};
+
 export const get_config_master: RequestHandler = async (req, res) => {
     try {
 
@@ -201,6 +215,110 @@ export const post_config_tooling: RequestHandler = async (req, res) => {
 
     } catch (error) {
         console.error("Error executing post config tooling query:", error);
+        return res.status(500).json({ error: "Internal server error" });
+    }
+};
+
+//=================
+// VECTOR DATABASE
+//=================
+export const get_config_vector: RequestHandler = async (req, res) => {
+    try {
+
+        const conf = await readServerConfig();
+
+        const modMaster = {
+            host: conf.vector.host,
+            port: conf.vector.port,
+            chunk: conf.vector.chunk,
+            chunk_overlap: conf.vector.chunk_overlap,
+            collection_name: conf.vector.collection_name,
+        };
+
+        // Return data in JSON format
+        return res.status(200).json( modMaster );
+
+    } catch (error) {
+        console.error("Error executing get vector database query:", error);
+        return res.status(500).json({ error: "Internal server error" });
+    }
+};
+
+export const post_config_vector: RequestHandler = async (req, res) => {
+    try {
+
+        const fs    = require('fs');
+        const path  = require('path');
+
+        // Get data from the form
+        const { model, host, port, chunk, chunk_overlap, collection_name } = req.body;
+
+        let conf = await readServerConfig();
+        conf.vector.host = host;
+        conf.vector.port = port;
+        conf.vector.chunk = chunk;
+        conf.vector.chunk_overlap = chunk_overlap;
+        conf.vector.collection_name = collection_name;
+
+        await writeServerConfig( conf );
+
+        // Return data in JSON format
+        return res.status(200).json( { message: 'Config vector variables updated successfully' } );
+
+    } catch (error) {
+        console.error("Error executing post vector query:", error);
+        return res.status(500).json({ error: "Internal server error" });
+    }
+};
+
+//=================
+// DATABASE
+//=================
+export const get_config_database: RequestHandler = async (req, res) => {
+    try {
+
+        const conf = await readServerConfig();
+
+        const modMaster = {
+            host: conf.database.host,
+            port: conf.database.port,
+            dbname: conf.database.dbname,
+            username: conf.database.username,
+            password: conf.database.password,
+        };
+
+        // Return data in JSON format
+        return res.status(200).json( modMaster );
+
+    } catch (error) {
+        console.error("Error executing get database query:", error);
+        return res.status(500).json({ error: "Internal server error" });
+    }
+};
+
+export const post_config_database: RequestHandler = async (req, res) => {
+    try {
+
+        const fs    = require('fs');
+        const path  = require('path');
+
+        // Get data from the form
+        const { model, host, port, dbname, username, password } = req.body;
+
+        let conf = await readServerConfig();
+        conf.database.host = host;
+        conf.database.port = port;
+        conf.database.dbname = dbname;
+        conf.database.username = username;
+        conf.database.password = password;
+
+        await writeServerConfig( conf );
+
+        // Return data in JSON format
+        return res.status(200).json( { message: 'Config database variables updated successfully' } );
+
+    } catch (error) {
+        console.error("Error executing post database query:", error);
         return res.status(500).json({ error: "Internal server error" });
     }
 };

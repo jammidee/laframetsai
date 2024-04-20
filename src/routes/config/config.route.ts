@@ -26,7 +26,7 @@ import { Router } from "express";
 import { authenticateToken } from '../../app/helpers/jwt-generate';
 
 import { get_env_master, post_env_master } from "./controller/model.env";
-import { get_config_embed, get_config_image, get_config_master, get_config_tooling, post_config_embed, post_config_image, post_config_master, post_config_tooling } from "./controller/model.config";
+import { get_config_all, get_config_database, get_config_embed, get_config_image, get_config_master, get_config_tooling, get_config_vector, post_config_database, post_config_embed, post_config_image, post_config_master, post_config_tooling, post_config_vector } from "./controller/model.config";
 
 const ConfigRoutes = Router();
 
@@ -34,17 +34,23 @@ ConfigRoutes.get("/", (req, res) => {
   res.json({ message: "Config Route API" });
 });
 
-ConfigRoutes.get("/env/master",         authenticateToken,       get_env_master );              //JMD 04/18/2024
-ConfigRoutes.post("/env/master",        authenticateToken,       post_env_master );             //JMD 04/18/2024
+ConfigRoutes.get("/env/master",       authenticateToken,       get_env_master );              //JMD 04/18/2024
+ConfigRoutes.post("/env/master",      authenticateToken,       post_env_master );             //JMD 04/18/2024
 
-ConfigRoutes.get("/config/master",      authenticateToken,       get_config_master );           //JMD 04/20/2024
-ConfigRoutes.post("/config/master",     authenticateToken,       post_config_master );          //JMD 04/20/2024
-ConfigRoutes.get("/config/image",       authenticateToken,       get_config_image );            //JMD 04/20/2024
-ConfigRoutes.post("/config/image",      authenticateToken,       post_config_image );           //JMD 04/20/2024
-ConfigRoutes.get("/config/embed",       authenticateToken,       get_config_embed );            //JMD 04/20/2024
-ConfigRoutes.post("/config/embed",      authenticateToken,       post_config_embed );           //JMD 04/20/2024
-ConfigRoutes.get("/config/tooling",     authenticateToken,       get_config_tooling );          //JMD 04/20/2024
-ConfigRoutes.post("/config/tooling",    authenticateToken,       post_config_tooling );         //JMD 04/20/2024
+ConfigRoutes.get("/json/all",         authenticateToken,       get_config_all );              //JMD 04/20/2024
 
+ConfigRoutes.get("/json/master",      authenticateToken,       get_config_master );           //JMD 04/20/2024
+ConfigRoutes.post("/json/master",     authenticateToken,       post_config_master );          //JMD 04/20/2024
+ConfigRoutes.get("/json/image",       authenticateToken,       get_config_image );            //JMD 04/20/2024
+ConfigRoutes.post("/json/image",      authenticateToken,       post_config_image );           //JMD 04/20/2024
+ConfigRoutes.get("/json/embed",       authenticateToken,       get_config_embed );            //JMD 04/20/2024
+ConfigRoutes.post("/json/embed",      authenticateToken,       post_config_embed );           //JMD 04/20/2024
+ConfigRoutes.get("/json/tooling",     authenticateToken,       get_config_tooling );          //JMD 04/20/2024
+ConfigRoutes.post("/json/tooling",    authenticateToken,       post_config_tooling );         //JMD 04/20/2024
+
+ConfigRoutes.get("/json/vector",      authenticateToken,       get_config_vector );           //JMD 04/20/2024
+ConfigRoutes.post("/json/vector",     authenticateToken,       post_config_vector );          //JMD 04/20/2024
+ConfigRoutes.get("/json/database",    authenticateToken,       get_config_database );         //JMD 04/20/2024
+ConfigRoutes.post("/json/database",   authenticateToken,       post_config_database );        //JMD 04/20/2024
 
 export default ConfigRoutes;

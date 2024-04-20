@@ -42,14 +42,20 @@ Content-Type: application/json
 
 ###
 
+# @name get_config_all
+GET {{baseUrl}}/api/v1/config/json/all HTTP/1.1
+Authorization: Bearer {{token}}
+
+###
+
 # @name get_config_master
-GET {{baseUrl}}/api/v1/config/config/master HTTP/1.1
+GET {{baseUrl}}/api/v1/config/json/master HTTP/1.1
 Authorization: Bearer {{token}}
 
 ###
 
 # @name post_config_master
-POST {{baseUrl}}/api/v1/config/config/master HTTP/1.1
+POST {{baseUrl}}/api/v1/config/json/master HTTP/1.1
 Authorization: Bearer {{token}}
 Content-Type: application/json
 
@@ -57,4 +63,48 @@ Content-Type: application/json
     "model": "llama2",
     "host": "127.0.0.1",
     "port": "11434"
+}
+
+###
+
+# @name get_config_vector
+GET {{baseUrl}}/api/v1/config/json/vector HTTP/1.1
+Authorization: Bearer {{token}}
+
+###
+
+# @name post_config_vector
+POST {{baseUrl}}/api/v1/config/json/vector HTTP/1.1
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+    "host": "127.0.0.1",
+    "port": 8000,
+    "chunk": 1000,
+    "chunk_overlap": 200,
+    "collection_name": "sophia-collection"
+
+}
+
+###
+
+# @name get_config_database
+GET {{baseUrl}}/api/v1/config/json/database HTTP/1.1
+Authorization: Bearer {{token}}
+
+###
+
+# @name post_config_database
+POST {{baseUrl}}/api/v1/config/json/database HTTP/1.1
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+    "host": "127.0.0.1",
+    "port": 3306,
+    "dbname": "db_dev",
+    "username": "root",
+    "password": "password"
+
 }

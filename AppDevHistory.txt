@@ -17,7 +17,8 @@ TODO:
 
 04/20/2024  - Successfully created a function to write a json file.
             - Added loading of config via JSON
-            - 
+            - Added node end-point for json vector settings
+            - Added node end-point for json database settings
 
 04/19/2024  - Added the function configInitJSON
             - Added function readServerConfig
