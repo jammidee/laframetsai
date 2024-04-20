@@ -23,14 +23,14 @@ Content-Type: application/json
 
 @token = {{getaccesstoken.response.body.$.access_token}}
 
-# @name get_model_master
-GET {{baseUrl}}/api/v1/config/model/master HTTP/1.1
+# @name get_env_master
+GET {{baseUrl}}/api/v1/config/env/master HTTP/1.1
 Authorization: Bearer {{token}}
 
 ###
 
 # @name post_model_master
-POST {{baseUrl}}/api/v1/config/model/master HTTP/1.1
+POST {{baseUrl}}/api/v1/config/env/master HTTP/1.1
 Authorization: Bearer {{token}}
 Content-Type: application/json
 
@@ -38,4 +38,23 @@ Content-Type: application/json
     "model": "llama3",
     "host": "127.0.0.3",
     "port": "11435"
+}
+
+###
+
+# @name get_config_master
+GET {{baseUrl}}/api/v1/config/config/master HTTP/1.1
+Authorization: Bearer {{token}}
+
+###
+
+# @name post_config_master
+POST {{baseUrl}}/api/v1/config/config/master HTTP/1.1
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+    "model": "llama2",
+    "host": "127.0.0.1",
+    "port": "11434"
 }

@@ -25,7 +25,8 @@
 import { Router } from "express";
 import { authenticateToken } from '../../app/helpers/jwt-generate';
 
-import { get_model_master, post_model_master } from "./controller/model.master";
+import { get_env_master, post_env_master } from "./controller/model.env";
+import { get_config_embed, get_config_image, get_config_master, get_config_tooling, post_config_embed, post_config_image, post_config_master, post_config_tooling } from "./controller/model.config";
 
 const ConfigRoutes = Router();
 
@@ -33,7 +34,17 @@ ConfigRoutes.get("/", (req, res) => {
   res.json({ message: "Config Route API" });
 });
 
-ConfigRoutes.get("/model/master",   authenticateToken,       get_model_master );              //JMD 04/18/2024
-ConfigRoutes.post("/model/master",  authenticateToken,       post_model_master );             //JMD 04/18/2024
+ConfigRoutes.get("/env/master",         authenticateToken,       get_env_master );              //JMD 04/18/2024
+ConfigRoutes.post("/env/master",        authenticateToken,       post_env_master );             //JMD 04/18/2024
+
+ConfigRoutes.get("/config/master",      authenticateToken,       get_config_master );           //JMD 04/20/2024
+ConfigRoutes.post("/config/master",     authenticateToken,       post_config_master );          //JMD 04/20/2024
+ConfigRoutes.get("/config/image",       authenticateToken,       get_config_image );            //JMD 04/20/2024
+ConfigRoutes.post("/config/image",      authenticateToken,       post_config_image );           //JMD 04/20/2024
+ConfigRoutes.get("/config/embed",       authenticateToken,       get_config_embed );            //JMD 04/20/2024
+ConfigRoutes.post("/config/embed",      authenticateToken,       post_config_embed );           //JMD 04/20/2024
+ConfigRoutes.get("/config/tooling",     authenticateToken,       get_config_tooling );          //JMD 04/20/2024
+ConfigRoutes.post("/config/tooling",    authenticateToken,       post_config_tooling );         //JMD 04/20/2024
+
 
 export default ConfigRoutes;

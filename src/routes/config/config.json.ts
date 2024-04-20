@@ -23,15 +23,27 @@
 */
 
 import { promises as fs } from 'fs';
+import path from "path";
+
+const configPath = "../config/server-config.json";
 
 async function readServerConfig(): Promise<any> {
     try {
-        const configPath = "../config/server-config.json";
-        const jsonData = await fs.readFile(configPath, { encoding: 'utf-8' });
+        const jsonData = await fs.readFile(path.join(__dirname, configPath ), { encoding: 'utf-8' });
         return JSON.parse(jsonData);
+    } catch (error) {
+        throw new Error(`Error reading Server Configuration file: ${error}`);
+    }
+};
+
+async function writeServerConfig( config: any ): Promise<any> {
+    try {
+        console.log(`Writing config: \n\n ${JSON.stringify(config)}`);
+        await fs.writeFile(path.join(__dirname, configPath ), JSON.stringify( config ));
+        return config;
     } catch (error) {
         throw new Error(`Error reading Server Configuration file: ${error}`);
     }
 }
 
-export default readServerConfig;
+export {readServerConfig, writeServerConfig };

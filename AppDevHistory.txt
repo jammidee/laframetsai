@@ -13,8 +13,12 @@ Tested / QA by:				Jammi Dee
 TODO:
 
             - Added site pages for initial login page.
+            - 
+
+04/20/2024  - Successfully created a function to write a json file.
             - Added loading of config via JSON
             - 
+
 04/19/2024  - Added the function configInitJSON
             - Added function readServerConfig
             - 

@@ -24,7 +24,7 @@
 
 import { RequestHandler } from "express";
 
-export const get_model_master: RequestHandler = async (req, res) => {
+export const get_env_master: RequestHandler = async (req, res) => {
     try {
 
         const modMaster = {
@@ -42,7 +42,7 @@ export const get_model_master: RequestHandler = async (req, res) => {
     }
 };
 
-export const post_model_master: RequestHandler = async (req, res) => {
+export const post_env_master: RequestHandler = async (req, res) => {
     try {
 
         const fs    = require('fs');
