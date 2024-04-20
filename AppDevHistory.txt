@@ -19,6 +19,8 @@ TODO:
             - Added loading of config via JSON
             - Added node end-point for json vector settings
             - Added node end-point for json database settings
+            - Added initialization for the prompt
+            - 
 
 04/19/2024  - Added the function configInitJSON
             - Added function readServerConfig

@@ -49,7 +49,24 @@ module.exports = {
           createdAt: new Date(),
           updatedAt: new Date(),
         },
-
+        {
+          name: 'Pompon Dee',
+          email: 'pompom@yahoo.com',
+          password: 'sadmin12345!',
+          lastseen: new Date(),
+          lastupdate: new Date(),
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        },
+        {
+          name: 'Rinrin Dee',
+          email: 'rinrin@yahoo.com',
+          password: 'sadmin12345!',
+          lastseen: new Date(),
+          lastupdate: new Date(),
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        },
     ]);
   },
 
